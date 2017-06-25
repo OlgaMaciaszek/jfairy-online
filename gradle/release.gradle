@@ -35,5 +35,5 @@ modifyPom {
 	}
 }
 
-uploadArchives.dependsOn { check }
+uploadArchives.dependsOn {check}
 

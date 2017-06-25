@@ -1,15 +1,15 @@
 package io.codearte.jFairyOnline.rest;
 
-import io.codearte.jFairyOnline.AppConstants;
+import java.util.Set;
+
+import io.codearte.jFairyOnline.config.JFOProperties;
 import io.codearte.jFairyOnline.services.CompanyService;
 import io.codearte.jfairy.producer.company.Company;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Set;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -20,15 +20,16 @@ import java.util.Set;
 public class CompanyController {
 
 	private final CompanyService companyService;
+	private final JFOProperties properties;
 
-	@Autowired
-	public CompanyController(CompanyService companyService) {
+	public CompanyController(CompanyService companyService, JFOProperties properties) {
 		this.companyService = companyService;
+		this.properties = properties;
 	}
 
 	@RequestMapping
 	Set<Company> companies(@RequestParam(value = "lang", defaultValue = "EN") String languageTag) {
-		return companyService.getCompanies(languageTag, AppConstants.LIMIT);
+		return companyService.getCompanies(languageTag, properties.getLimit());
 	}
 
 	@RequestMapping("/{number}")

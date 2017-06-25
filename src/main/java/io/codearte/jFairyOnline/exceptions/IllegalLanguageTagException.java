@@ -1,6 +1,7 @@
 package io.codearte.jFairyOnline.exceptions;
 
 import io.codearte.jFairyOnline.services.validation.AllowedLanguageTags;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

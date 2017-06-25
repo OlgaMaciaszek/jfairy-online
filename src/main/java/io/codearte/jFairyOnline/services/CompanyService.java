@@ -1,15 +1,16 @@
 package io.codearte.jFairyOnline.services;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import io.codearte.jFairyOnline.services.fairy.FairyProvider;
 import io.codearte.jFairyOnline.services.validation.LimitValidator;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.company.Company;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * @author Olga Maciaszek-Sharma

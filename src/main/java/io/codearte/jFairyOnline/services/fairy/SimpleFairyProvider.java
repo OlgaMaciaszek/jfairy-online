@@ -1,12 +1,12 @@
 package io.codearte.jFairyOnline.services.fairy;
 
-import io.codearte.jFairyOnline.services.fairy.FairyProvider;
+import java.util.Locale;
+
 import io.codearte.jFairyOnline.services.validation.LanguageTagValidator;
 import io.codearte.jfairy.Fairy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
 
 /**
  * @author Olga Maciaszek-Sharma

@@ -1,9 +1,9 @@
 package io.codearte.jFairyOnline.services.validation;
 
+import io.codearte.jFairyOnline.config.JFOProperties;
 import io.codearte.jFairyOnline.exceptions.LimitExceededException;
-import org.springframework.stereotype.Component;
 
-import static io.codearte.jFairyOnline.AppConstants.LIMIT;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -12,9 +12,16 @@ import static io.codearte.jFairyOnline.AppConstants.LIMIT;
 @Component
 public class LimitValidator {
 
+	private final JFOProperties properties;
+
+	public LimitValidator(JFOProperties properties) {
+		this.properties = properties;
+	}
+
 	public void validate(int number) {
-		if (number > LIMIT) {
-			throw new LimitExceededException(number);
+		int limit = properties.getLimit();
+		if (number > limit) {
+			throw new LimitExceededException(number, limit);
 		}
 	}
 }

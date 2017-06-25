@@ -1,13 +1,20 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.2.RELEASE'
+		groovyVersion = '2.4.11'
+		springBootVersion = '1.5.4.RELEASE'
+		axionPluginVersion = '1.7.0'
+		gradleNexusPluginVersion = '2.3.1'
+		nexusStagingPluginVersion = '0.9.0'
+		prodepsPluginVersion = '0.0.9.RELEASE'
+		jFairyVersion = '0.5.7'
+		spockVersion = '1.1-groovy-2.4'
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath "pl.allegro.tech.build:axion-release-plugin:1.4.1"
-		classpath "com.bmuschko:gradle-nexus-plugin:2.3"
-		classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"
-		classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "pl.allegro.tech.build:axion-release-plugin:${axionPluginVersion}"
+		classpath "com.bmuschko:gradle-nexus-plugin:${gradleNexusPluginVersion}"
+		classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:${nexusStagingPluginVersion}"
+		classpath "io.spring.gradle:propdeps-plugin:${prodepsPluginVersion}"
 	}
 	repositories {
 		mavenCentral()
@@ -31,9 +38,9 @@ apply plugin: 'propdeps-idea'
 apply from: "$rootDir/gradle/release.gradle"
 
 scmVersion {
-	tag { prefix = "jfairy-online" }
+	tag {prefix = "jfairy-online"}
 	createReleaseCommit = true
-	releaseCommitMessage { version, position -> "Release version: ${version}\n\n[ci skip]" }
+	releaseCommitMessage {version, position -> "Release version: ${version}\n\n[ci skip]"}
 }
 
 project.version = scmVersion.version
@@ -60,9 +67,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile group: 'io.codearte.jfairy', name: 'jfairy', version: '0.5.5'
+	compile group: 'io.codearte.jfairy', name: 'jfairy', version: "${jFairyVersion}"
 	optional('org.springframework.boot:spring-boot-devtools')
+	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'org.spockframework', name: 'spock-core', version: "${spockVersion}"
+	testCompile group: 'org.spockframework', name: 'spock-spring', version: "${spockVersion}"
 }
 
 
