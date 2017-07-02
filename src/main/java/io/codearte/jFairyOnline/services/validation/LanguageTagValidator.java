@@ -6,6 +6,8 @@ import io.codearte.jFairyOnline.exceptions.IllegalLanguageTagException;
 
 import org.springframework.stereotype.Component;
 
+import static java.util.Arrays.stream;
+
 /**
  * @author Olga Maciaszek-Sharma
  * @since 2017-01-02
@@ -20,7 +22,7 @@ public class LanguageTagValidator {
 	}
 
 	private boolean languageTagNotAllowed(String languageTag) {
-		return Arrays.stream(AllowedLanguageTags.values())
+		return stream(AllowedLanguageTags.values())
 				.noneMatch(langTag -> langTag.name().equals(languageTag));
 	}
 }

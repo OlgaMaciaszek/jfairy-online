@@ -1,8 +1,10 @@
 package io.codearte.jFairyOnline.services.validation;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -16,6 +18,6 @@ public enum AllowedLanguageTags {
 	}
 
 	private static List<String> getValuesAsStrings() {
-		return Arrays.stream(values()).map(Enum::name).collect(Collectors.toList());
+		return stream(values()).map(Enum::name).collect(toList());
 	}
 }
