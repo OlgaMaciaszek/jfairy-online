@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/persons")
 public class PersonController {
 
-	public static final String PERSONS = "persons";
+	private static final String PERSONS = "persons";
 	private final PersonService personService;
 
 	public PersonController(PersonService personService) {
@@ -27,8 +27,10 @@ public class PersonController {
 	}
 
 	@GetMapping
-	public String persons(@RequestParam(value = "lang", defaultValue = "EN") String language, Model model) {
-		Set<Person> persons = personService.getPersons(language);
+	public String persons(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
+	                      @RequestParam(value = "number", defaultValue = "100") int number,
+	                      Model model) {
+		Set<Person> persons = personService.getPersons(languageTag, number);
 		model.addAttribute(PERSONS, persons);
 		return PERSONS;
 	}

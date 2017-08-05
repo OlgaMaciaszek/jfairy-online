@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Persons</title>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    </link>
+</head>
+<body>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+<h2>Persons</h2>
+<div th:unless="${#lists.isEmpty(persons)}">
+    <table class="table-striped">
+        <tr th:each="person : ${persons}">
+            <th>
+                <span th:text="${person.firstName}">First Name</span>
+            </th>
+            <th>
+                <span th:text="${person.middleName}">Middle Name</span>
+            </th>
+            <th>
+                <span th:text="${person.lastName}">Last Name</span>
+            </th>
+            <th>
+                <span th:text="${person.address}">Address</span>
+            </th>
+            <th>
+                <span th:text="${person.email}">Email</span>
+            </th>
+            <th>
+                <span th:text="${person.username}">Username</span>
+            </th>
+            <th>
+                <span th:text="${person.password}">Password</span>
+            </th>
+            <th>
+                <span th:text="${person.sex}">Sex</span>
+            </th>
+            <th>
+                <span th:text="${person.telephoneNumber}">Telephone Number</span>
+            </th>
+            <th>
+                <span th:text="${person.dateOfBirth}">Date of Birth</span>
+            </th>
+            <th>
+                <span th:text="${person.age}">Last Name</span>
+            </th>
+            <th>
+                <span th:text="${person.company}">Company</span>
+            </th>
+            <th>
+                <span th:text="${person.companyEmail}">Company Email</span>
+            </th>
+            <th>
+                <span th:text="${person.nationalIdentityCardNumber}">National Identity Card Number</span>
+            </th>
+            <th>
+                <span th:text="${person.nationalIdentificationNumber}">National Identification Number</span>
+            </th>
+            <th>
+                <span th:text="${person.passportNumber}">Passport Number</span>
+            </th>
+        </tr>
+    </table>
+
+</div>
+</body>
+
+</html>

@@ -9,7 +9,6 @@ import io.codearte.jFairyOnline.services.validation.LimitValidator;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.person.Person;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static java.util.stream.Collectors.toSet;
@@ -23,16 +22,10 @@ public class PersonService {
 
 	private final FairyProvider fairyProvider;
 	private final LimitValidator limitValidator;
-	private final JFOProperties properties;
 
-	public PersonService(FairyProvider fairyProvider, LimitValidator limitValidator, JFOProperties properties) {
+	public PersonService(FairyProvider fairyProvider, LimitValidator limitValidator) {
 		this.fairyProvider = fairyProvider;
 		this.limitValidator = limitValidator;
-		this.properties = properties;
-	}
-
-	public Set<Person> getPersons(String languageTag) {
-		return getPersons(languageTag, properties.getLimit());
 	}
 
 	public Set<Person> getPersons(String languageTag, int number) {
