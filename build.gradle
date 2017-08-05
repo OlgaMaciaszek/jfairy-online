@@ -1,11 +1,11 @@
 buildscript {
 	ext {
 		groovyVersion = '2.4.11'
-		springBootVersion = '1.5.4.RELEASE'
-		axionPluginVersion = '1.7.0'
+		springBootVersion = '1.5.6.RELEASE'
+		axionPluginVersion = '1.7.1'
 		gradleNexusPluginVersion = '2.3.1'
 		nexusStagingPluginVersion = '0.9.0'
-		prodepsPluginVersion = '0.0.9.RELEASE'
+		prodepsPluginVersion = '0.0.10.RELEASE'
 		jFairyVersion = '0.5.7'
 		spockVersion = '1.1-groovy-2.4'
 	}
@@ -15,6 +15,7 @@ buildscript {
 		classpath "com.bmuschko:gradle-nexus-plugin:${gradleNexusPluginVersion}"
 		classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:${nexusStagingPluginVersion}"
 		classpath "io.spring.gradle:propdeps-plugin:${prodepsPluginVersion}"
+		classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
 	}
 	repositories {
 		mavenCentral()
@@ -35,6 +36,7 @@ apply plugin: 'io.codearte.nexus-staging'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-maven'
 apply plugin: 'propdeps-idea'
+apply plugin: 'com.github.ben-manes.versions'
 apply from: "$rootDir/gradle/release.gradle"
 
 scmVersion {
