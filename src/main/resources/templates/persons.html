@@ -4,66 +4,96 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Persons</title>
-    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    </link>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
 </head>
 <body>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<h2>Persons</h2>
+<div class="page-header">
+    <h2>Persons</h2>
+</div>
 <div th:unless="${#lists.isEmpty(persons)}">
-    <table class="table-striped">
+    <table class="table-striped table-condensed" style="white-space:nowrap;">
+        <thead>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Sex</th>
+        <th>Telephone Number</th>
+        <th>Date of Birth</th>
+        <th>Age</th>
+        <th>Company Name</th>
+        <th>Company Website</th>
+        <th>Company Email</th>
+        <th>Company VATIN</th>
+        <th>National Identity Card Number</th>
+        <th>National Identification Number</th>
+        <th>Passport Number</th>
+        </thead>
+        <tbody>
         <tr th:each="person : ${persons}">
-            <th>
+            <td>
                 <span th:text="${person.firstName}">First Name</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.middleName}">Middle Name</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.lastName}">Last Name</span>
-            </th>
-            <th>
-                <span th:text="${person.address}">Address</span>
-            </th>
-            <th>
+            </td>
+            <td>
+                <span th:utext="${person.address.toString()}">Address</span>
+            </td>
+            <td>
                 <span th:text="${person.email}">Email</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.username}">Username</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.password}">Password</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.sex}">Sex</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.telephoneNumber}">Telephone Number</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.dateOfBirth}">Date of Birth</span>
-            </th>
-            <th>
-                <span th:text="${person.age}">Last Name</span>
-            </th>
-            <th>
-                <span th:text="${person.company}">Company</span>
-            </th>
-            <th>
+            </td>
+            <td>
+                <span th:text="${person.age}">Age</span>
+            </td>
+            <td>
+                <span th:text="${person.company.name}">Company Name</span>
+            </td>
+            <td>
+                <span th:text="${'http://' + person.company.domain}">Company Website</span>
+            </td>
+            <td>
                 <span th:text="${person.companyEmail}">Company Email</span>
-            </th>
-            <th>
+            </td>
+            <td>
+                <span th:text="${person.company.vatIdentificationNumber}">Company VATIN</span>
+            </td>
+            <td>
                 <span th:text="${person.nationalIdentityCardNumber}">National Identity Card Number</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.nationalIdentificationNumber}">National Identification Number</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span th:text="${person.passportNumber}">Passport Number</span>
-            </th>
+            </td>
         </tr>
+        </tbody>
     </table>
-
+</div>
 </div>
 </body>
 
