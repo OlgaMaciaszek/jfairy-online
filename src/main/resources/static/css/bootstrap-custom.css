@@ -2,10 +2,6 @@
     background-color: #e6f2ff;
 }
 
-body {
-    margin-left: 0.1%;
-}
-
 .buffer {
     padding: 1%;
     width: -moz-min-content;
