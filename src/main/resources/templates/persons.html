@@ -12,7 +12,8 @@
 <div class="page-header">
     <h2>Persons</h2>
 </div>
-<div th:unless="${#lists.isEmpty(persons)}">
+<div class="buffer">
+    <div th:unless="${#lists.isEmpty(persons)}">
     <table class="table-striped table-condensed" style="white-space:nowrap;">
         <thead>
         <th>First Name</th>
@@ -95,6 +96,7 @@
     </table>
 </div>
 </div>
+
 </body>
 
 </html>

@@ -5,3 +5,9 @@
 body {
     margin-left: 0.1%;
 }
+
+.buffer {
+    padding: 1%;
+    width: -moz-min-content;
+    width: -webkit-min-content;
+}
