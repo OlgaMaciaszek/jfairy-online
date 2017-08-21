@@ -7,3 +7,9 @@
     width: -moz-min-content;
     width: -webkit-min-content;
 }
+
+.outOfView {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+}
