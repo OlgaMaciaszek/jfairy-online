@@ -34,6 +34,4 @@ public class PersonController {
 		model.addAttribute(PERSONS, persons);
 		return PERSONS;
 	}
-
-
 }

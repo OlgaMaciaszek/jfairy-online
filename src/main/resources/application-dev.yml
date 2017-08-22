@@ -1,3 +1,7 @@
 spring:
     thymeleaf:
       cache: false
+logging:
+  level:
+    com.github.dandelion: DEBUG
+    com.github.dandelion.datatables: DEBUG

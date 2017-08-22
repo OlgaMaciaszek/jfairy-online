@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <head>
     <title>Persons</title>
     <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
@@ -14,90 +15,91 @@
 <div class="page-header">
     <h2>Persons</h2>
 </div>
-<div class="buffer">
     <div th:unless="${#lists.isEmpty(persons)}">
-        <table id="contentTable" class="table-striped table-condensed" style="white-space:nowrap;">
-        <thead>
-        <th>First Name</th>
-        <th>Middle Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Email</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Sex</th>
-        <th>Telephone Number</th>
-        <th>Date of Birth</th>
-        <th>Age</th>
-        <th>Company Name</th>
-        <th>Company Website</th>
-        <th>Company Email</th>
-        <th>Company VATIN</th>
-        <th>National Identity Card Number</th>
-        <th>National Identification Number</th>
-        <th>Passport Number</th>
-        </thead>
-        <tbody>
-        <tr th:each="person : ${persons}">
-            <td>
-                <span th:text="${person.firstName}">First Name</span>
-            </td>
-            <td>
-                <span th:text="${person.middleName}">Middle Name</span>
-            </td>
-            <td>
-                <span th:text="${person.lastName}">Last Name</span>
-            </td>
-            <td>
-                <span th:utext="${person.address.toString()}">Address</span>
-            </td>
-            <td>
-                <span th:text="${person.email}">Email</span>
-            </td>
-            <td>
-                <span th:text="${person.username}">Username</span>
-            </td>
-            <td>
-                <span th:text="${person.password}">Password</span>
-            </td>
-            <td>
-                <span th:text="${person.sex}">Sex</span>
-            </td>
-            <td>
-                <span th:text="${person.telephoneNumber}">Telephone Number</span>
-            </td>
-            <td>
-                <span th:text="${person.dateOfBirth}">Date of Birth</span>
-            </td>
-            <td>
-                <span th:text="${person.age}">Age</span>
-            </td>
-            <td>
-                <span th:text="${person.company.name}">Company Name</span>
-            </td>
-            <td>
-                <span th:text="${'http://' + person.company.domain}">Company Website</span>
-            </td>
-            <td>
-                <span th:text="${person.companyEmail}">Company Email</span>
-            </td>
-            <td>
-                <span th:text="${person.company.vatIdentificationNumber}">Company VATIN</span>
-            </td>
-            <td>
-                <span th:text="${person.nationalIdentityCardNumber}">National Identity Card Number</span>
-            </td>
-            <td>
-                <span th:text="${person.nationalIdentificationNumber}">National Identification Number</span>
-            </td>
-            <td>
-                <span th:text="${person.passportNumber}">Passport Number</span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</div>
+        <table id="personsTable" dt:table="true" class="table-striped table-condensed"
+               dt:export="csv,xlsx,pdf,xml" dt:pagingType="simple_numbers" dt:scrollX="100%">
+            <thead>
+            <tr>
+                <th dt:sortable="true" dt:searchable="true">First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Sex</th>
+                <th>Telephone Number</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Company Name</th>
+                <th>Company Website</th>
+                <th>Company Email</th>
+                <th>Company VATIN</th>
+                <th>National Identity Card Number</th>
+                <th>National Identification Number</th>
+                <th>Passport Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="person : ${persons}">
+                <td>
+                    <span th:text="${person.firstName}">First Name</span>
+                </td>
+                <td>
+                    <span th:text="${person.middleName}">Middle Name</span>
+                </td>
+                <td>
+                    <span th:text="${person.lastName}">Last Name</span>
+                </td>
+                <td>
+                    <span th:utext="${person.address.toString()}">Address</span>
+                </td>
+                <td>
+                    <span th:text="${person.email}">Email</span>
+                </td>
+                <td>
+                    <span th:text="${person.username}">Username</span>
+                </td>
+                <td>
+                    <span th:text="${person.password}">Password</span>
+                </td>
+                <td>
+                    <span th:text="${person.sex}">Sex</span>
+                </td>
+                <td>
+                    <span th:text="${person.telephoneNumber}">Telephone Number</span>
+                </td>
+                <td>
+                    <span th:text="${person.dateOfBirth}">Date of Birth</span>
+                </td>
+                <td>
+                    <span th:text="${person.age}">Age</span>
+                </td>
+                <td>
+                    <span th:text="${person.company.name}">Company Name</span>
+                </td>
+                <td>
+                    <span th:text="${'http://' + person.company.domain}">Company Website</span>
+                </td>
+                <td>
+                    <span th:text="${person.companyEmail}">Company Email</span>
+                </td>
+                <td>
+                    <span th:text="${person.company.vatIdentificationNumber}">Company VATIN</span>
+                </td>
+                <td>
+                    <span th:text="${person.nationalIdentityCardNumber}">National Identity Card Number</span>
+                </td>
+                <td>
+                    <span th:text="${person.nationalIdentificationNumber}">National Identification Number</span>
+                </td>
+                <td>
+                    <span th:text="${person.passportNumber}">Passport Number</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 <div id="copyContent" class="outOfView"></div>
 </body>
 

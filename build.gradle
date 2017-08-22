@@ -10,6 +10,8 @@ buildscript {
 		spockVersion = '1.1-groovy-2.4'
 		bootstrapVersion = '3.3.7-1'
 		jQueryVersion = '3.2.1'
+		datatablesVersion = '1.1.0'
+		dandelionVersion = '1.1.1'
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -71,6 +73,9 @@ dependencies {
 	compile group: 'io.codearte.jfairy', name: 'jfairy', version: "${jFairyVersion}"
 	compile group: 'org.webjars', name: 'bootstrap', version: "${bootstrapVersion}"
 	compile group: 'org.webjars', name: 'jquery', version: "${jQueryVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-thymeleaf', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'dandelion-core'
+	compile group: 'com.github.dandelion', name:'dandelion-thymeleaf', version: "${dandelionVersion}"
 	optional('org.springframework.boot:spring-boot-devtools')
 	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
 	testCompile('org.springframework.boot:spring-boot-starter-test')

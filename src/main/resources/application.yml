@@ -2,7 +2,5 @@ spring:
     data:
       mongodb:
         database: jFairyOnlineDb
-    thymeleaf:
-      cache: false
 server:
   port: 8000

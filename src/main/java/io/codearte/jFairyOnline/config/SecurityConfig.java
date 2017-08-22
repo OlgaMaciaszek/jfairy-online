@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/", "/persons", "/companies", "/text", "/rest/**", "/webjars/**").permitAll()
+				.antMatchers("/", "/persons", "/companies", "/text", "/rest/**",
+						"/webjars/**", "/dandelion-assets/**", "/dandelion/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
