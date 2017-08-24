@@ -1,8 +1,6 @@
 package io.codearte.jFairyOnline.services;
 
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import io.codearte.jFairyOnline.services.fairy.FairyProvider;
 import io.codearte.jFairyOnline.services.validation.LimitValidator;
@@ -11,6 +9,9 @@ import io.codearte.jfairy.producer.company.Company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import static java.util.stream.Collectors.toSet;
+import static java.util.stream.IntStream.range;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -31,6 +32,6 @@ public class CompanyService {
 	public Set<Company> getCompanies(String languageTag, int number) {
 		limitValidator.validate(number);
 		Fairy fairy = fairyProvider.getFairy(languageTag);
-		return IntStream.range(0, number).mapToObj(i -> fairy.company()).collect(Collectors.toSet());
+		return range(0, number).mapToObj(num -> fairy.company()).collect(toSet());
 	}
 }

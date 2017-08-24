@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Persons</title>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.4%;">
+<div dt:conf="contentTable">
+    <div dt:confType="export" dt:type="csv" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="xlsx" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="pdf" dt:cssClass="btn-primary"></div>
+</div>
+<div class="page-header">
+    <h2>Companies</h2>
+</div>
+<div th:unless="${#lists.isEmpty(companies)}">
+    <table id="contentTable" dt:table="true" class="table-striped table-condensed"
+           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Website</th>
+            <th>Email</th>
+            <th>VATIN</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="company : ${companies}">
+            <td th:text="${company.name}">Name</td>
+            <td th:text="${'http://' + company.domain}">Website</td>
+            <td th:text="${company.email}">Email</td>
+            <td th:text="${company.vatIdentificationNumber}">VATIN</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="copyContent" class="outOfView"></div>
+</body>
+
+</html>

@@ -5,7 +5,6 @@ import java.util.Set;
 import io.codearte.jFairyOnline.services.PersonService;
 import io.codearte.jfairy.producer.person.Person;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +20,6 @@ public class PersonController {
 
 	private final PersonService personService;
 
-	@Autowired
 	public PersonController(PersonService personService) {
 		this.personService = personService;
 	}
