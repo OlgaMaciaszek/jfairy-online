@@ -116,3 +116,17 @@ html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentT
     /* W3C */
     box-shadow: inset 0 0 3px #003e80;
 }
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_filter.dataTables_filter {
+    margin-right: 0.2%;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div.dataTables_export {
+    margin-right: 2%;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div.dataTables_export a.btn-primary {
+    margin: 0.5%;
+    font-size: 90%;
+    padding: 5%;
+}

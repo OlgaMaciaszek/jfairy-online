@@ -11,16 +11,21 @@
     <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
     <script src="scripts/customBehaviour.js"></script>
 </head>
-<body>
+<body style="margin: 0.4%;">
+<div dt:conf="contentTable">
+    <div dt:confType="export" dt:type="csv" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="xlsx" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="pdf" dt:cssClass="btn-primary"></div>
+</div>
 <div class="page-header">
     <h2>Persons</h2>
 </div>
     <div th:unless="${#lists.isEmpty(persons)}">
         <table id="contentTable" dt:table="true" class="table-striped table-condensed"
-               dt:export="csv,xlsx,pdf,xml" dt:pagingType="simple_numbers" dt:scrollX="100%">
+               dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%">
             <thead>
             <tr>
-                <th dt:sortable="true" dt:searchable="true">First Name</th>
+                <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
