@@ -19,21 +19,8 @@
     top: -1000px;
 }
 
-html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button {
-    box-sizing: border-box;
-    display: inline-block;
-    min-width: 1.5em;
-    padding: 0.5em 1em;
-    margin-left: 2px;
-    text-align: center;
-    text-decoration: none !important;
-    cursor: pointer;
-    *cursor: hand;
-    color: #001933 !important;
-    border: 1px solid transparent;
-}
-
-html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current:hover {
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current:hover {
     color: #001933 !important;
     border: 1px solid #cce5ff;
     background-color: white;
@@ -50,14 +37,50 @@ html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsT
     background: linear-gradient(to bottom, white 0%, #e6f2ff 100%);
     /* W3C */
 }
-html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.disabled:active {
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    *cursor: hand;
+    color: #001933 !important;
+    border: 1px solid transparent;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current:hover {
+    color: #001933 !important;
+    border: 1px solid #cce5ff;
+    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e6f2ff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, white 0%, #e6f2ff 100%);
+    /* W3C */
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.disabled:active {
     cursor: default;
     color: #003e80 !important;
     border: 1px solid transparent;
     background: transparent;
     box-shadow: none;
 }
-html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:hover {
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:hover,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers a#contentTable_previous.paginate_button.previous:hover,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers a#contentTable_next.paginate_button.next:hover {
     color: white !important;
     border: 1px solid #0056b3;
     background-color: #0056b3;
@@ -75,7 +98,7 @@ html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsT
     /* W3C */
 }
 
-html body div div#personsTable_wrapper.dataTables_wrapper.no-footer div#personsTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:active {
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:active {
     outline: none;
     background-color: #0056b3;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0056b3),

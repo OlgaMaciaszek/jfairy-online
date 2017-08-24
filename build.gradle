@@ -13,6 +13,7 @@ buildscript {
 		datatablesVersion = '1.1.0'
 		dandelionVersion = '1.1.1'
 	}
+
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 		classpath "pl.allegro.tech.build:axion-release-plugin:${axionPluginVersion}"
@@ -76,6 +77,9 @@ dependencies {
 	compile group: 'com.github.dandelion', name: 'datatables-thymeleaf', version: "${datatablesVersion}"
 	compile group: 'com.github.dandelion', name: 'dandelion-core'
 	compile group: 'com.github.dandelion', name:'dandelion-thymeleaf', version: "${dandelionVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-export-itext', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-export-poi-ooxml', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-spring3', version: "${datatablesVersion}"
 	optional('org.springframework.boot:spring-boot-devtools')
 	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
