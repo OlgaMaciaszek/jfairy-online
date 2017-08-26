@@ -34,33 +34,33 @@ public class TextService {
 	}
 
 	public String word(String languageTag, int count) {
-		limitValidator.validate(count);
+		limitValidator.validateForText(count);
 		return textProducer(languageTag).word(count);
 	}
 
 	public String latinWord(int count) {
-		limitValidator.validate(count);
+		limitValidator.validateForText(count);
 		return textProducer().latinWord(count);
 	}
 
 	public String latinSentence(int wordCount) {
-		limitValidator.validate(wordCount);
+		limitValidator.validateForText(wordCount);
 		return textProducer().latinSentence(wordCount);
 	}
 
 	public String sentence(String languageTag, int wordCount) {
-		limitValidator.validate(wordCount);
+		limitValidator.validateForText(wordCount);
 		return textProducer(languageTag).sentence(wordCount);
 	}
 
 	public String paragraph(String languageTag, int sentenceCount) {
-		limitValidator.validate(sentenceCount);
+		limitValidator.validateForText(sentenceCount);
 		return textProducer(languageTag).paragraph(sentenceCount);
 	}
 
-	public String randomString(String languageTag, int charsCount) {
-		limitValidator.validate(charsCount);
-		return textProducer(languageTag).randomString(charsCount);
+	public String randomString(int charsCount) {
+		limitValidator.validateForText(charsCount);
+		return textProducer().randomString(charsCount);
 	}
 
 	private TextProducer textProducer(String languageTag) {

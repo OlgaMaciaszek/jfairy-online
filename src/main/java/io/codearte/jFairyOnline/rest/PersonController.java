@@ -26,8 +26,8 @@ public class PersonController {
 
 	@GetMapping
 	Set<Person> persons(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                    @RequestParam(value = "number", defaultValue = "100") int number) {
-		return personService.getPersons(languageTag, number);
+	                    @RequestParam(value = "count", defaultValue = "100") int count) {
+		return personService.getPersons(languageTag, count);
 	}
 
 }

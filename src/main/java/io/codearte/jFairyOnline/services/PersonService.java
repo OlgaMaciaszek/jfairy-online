@@ -27,9 +27,9 @@ public class PersonService {
 		this.limitValidator = limitValidator;
 	}
 
-	public Set<Person> getPersons(String languageTag, int number) {
-		limitValidator.validate(number);
+	public Set<Person> getPersons(String languageTag, int count) {
+		limitValidator.validate(count);
 		Fairy fairy = fairyProvider.getFairy(languageTag);
-		return range(0, number).mapToObj(num -> fairy.person()).collect(toSet());
+		return range(0, count).mapToObj(num -> fairy.person()).collect(toSet());
 	}
 }

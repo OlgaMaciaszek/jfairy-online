@@ -20,17 +20,17 @@ public class LimitValidator {
 		this.properties = properties;
 	}
 
-	public void validate(int number) {
-		validate(number, properties.getLimit());
+	public void validate(int count) {
+		validate(count, properties.getLimit());
 	}
 
-	public void validateForText(int number) {
-		validate(number, properties.getTextLimit());
+	public void validateForText(int count) {
+		validate(count, properties.getTextLimit());
 	}
 
-	private void validate(int number, int limit) {
-		Optional.of(number)
+	private void validate(int count, int limit) {
+		Optional.of(count)
 				.filter(num -> num <= limit)
-				.orElseThrow(() -> new LimitExceededException(number, limit));
+				.orElseThrow(() -> new LimitExceededException(count, limit));
 	}
 }

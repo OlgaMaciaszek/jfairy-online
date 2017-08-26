@@ -29,9 +29,9 @@ public class CompanyService {
 		this.limitValidator = limitValidator;
 	}
 
-	public Set<Company> getCompanies(String languageTag, int number) {
-		limitValidator.validate(number);
+	public Set<Company> getCompanies(String languageTag, int count) {
+		limitValidator.validate(count);
 		Fairy fairy = fairyProvider.getFairy(languageTag);
-		return range(0, number).mapToObj(num -> fairy.company()).collect(toSet());
+		return range(0, count).mapToObj(num -> fairy.company()).collect(toSet());
 	}
 }

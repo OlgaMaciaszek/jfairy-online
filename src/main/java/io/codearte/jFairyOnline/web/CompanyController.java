@@ -28,9 +28,9 @@ public class CompanyController {
 
 	@GetMapping
 	public String companies(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                        @RequestParam(value = "number", defaultValue = "100") int number,
+	                        @RequestParam(value = "count", defaultValue = "100") int count,
 	                        Model model) {
-		Set<Company> companies = companyService.getCompanies(languageTag, number);
+		Set<Company> companies = companyService.getCompanies(languageTag, count);
 		model.addAttribute(COMPANIES, companies);
 		return COMPANIES;
 	}

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class LimitExceededException extends RuntimeException {
 
-	public LimitExceededException(int number, int limit) {
-		super("The provided number: " + number + " is too high. Please provide a number equal " + limit + " or smaller.");
+	public LimitExceededException(int count, int limit) {
+		super("The provided count: " + count + " is too high. Please provide a count equal " + limit + " or smaller.");
 	}
 }

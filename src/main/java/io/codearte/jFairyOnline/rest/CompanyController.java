@@ -26,8 +26,8 @@ public class CompanyController {
 
 	@GetMapping
 	Set<Company> companies(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                       @RequestParam(value = "number", defaultValue = "100") int number) {
-		return companyService.getCompanies(languageTag, number);
+	                       @RequestParam(value = "count", defaultValue = "100") int count) {
+		return companyService.getCompanies(languageTag, count);
 	}
 
 }
