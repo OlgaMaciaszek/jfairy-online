@@ -22,7 +22,8 @@
 </div>
 <div th:unless="${#lists.isEmpty(companies)}">
     <table id="contentTable" dt:table="true" class="table-striped table-condensed"
-           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%">
+           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%"
+           data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
         <thead>
         <tr>
             <th>Name</th>
