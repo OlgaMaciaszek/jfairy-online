@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JFairy Online</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.8%;">
+<div class="jumbotron text-center">
+    <h1>JFairy Online</h1>
+    <h2>Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.<br/>
+        <small>
+            This app has been developed by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a> as a
+            student project at the <a href="http://www.pja.edu.pl/en/">Polish-Japanese Academy Of Information
+            Technology</a>.
+        </small>
+    </h2>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading text-center"><h3>Generate Test Data</h3></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/persons'">Generate Persons</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/companies'">Generate Companies</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/text'">Generate Text</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-lg btn-block">Contribute - add locale-specific data</button>
+</body>
+</html>

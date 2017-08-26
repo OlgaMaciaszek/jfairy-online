@@ -1,18 +1,22 @@
 package io.codearte.jFairyOnline.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Olga Maciaszek-Sharma
  * @since 2017-01-01
  */
-@RestController
+@Controller
+@RequestMapping("/")
 public class HomeController {
 
-	@RequestMapping("/")
-	String home() {
-		return "Welcome to jFairy Online!";
+	private static final String HOME = "home";
+
+	@GetMapping
+	public String home() {
+		return HOME;
 	}
 
 }
