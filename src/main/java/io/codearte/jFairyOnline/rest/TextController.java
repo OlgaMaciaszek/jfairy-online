@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Olga Maciaszek-Sharma
  * @since 8/26/17
  */
-@RestController("restCompanyController")
-@RequestMapping("/text")
+@RestController("restTextController")
+@RequestMapping("/rest/text")
 public class TextController {
 
 	private final TextService textService;

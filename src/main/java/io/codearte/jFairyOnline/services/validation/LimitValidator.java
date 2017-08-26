@@ -28,6 +28,10 @@ public class LimitValidator {
 		validate(count, properties.getTextLimit());
 	}
 
+	public void validateForRandomString(int count) {
+		validate(count, properties.getRandomStringLimit());
+	}
+
 	private void validate(int count, int limit) {
 		Optional.of(count)
 				.filter(num -> num <= limit)

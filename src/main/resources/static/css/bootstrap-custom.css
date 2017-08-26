@@ -130,3 +130,11 @@ html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div.dataTabl
     font-size: 90%;
     padding: 5%;
 }
+
+html body div.panel.panel-primary {
+    margin: 2%;
+}
+
+html body div.page-header div.row div.col-md-1 {
+    padding: 0.2%
+}

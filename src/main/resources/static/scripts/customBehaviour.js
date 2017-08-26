@@ -8,13 +8,20 @@ function copyContent() {
     document.execCommand('copy');
 }
 $(document).ready(function () {
-    $('td').click(function () {
+    var cells = $('td');
+    cells.click(function () {
         $('#copyContent').text($.trim($(this).text()));
         copyContent();
     });
-
-    $('td').dblclick(function () {
+    cells.dblclick(function () {
         $('#copyContent').text($.trim($(this).parent().text()));
         copyContent();
     });
+    $('.panel,.panel-body').click(function () {
+        $('#copyContent').text($.trim($(this).text()));
+        copyContent();
+    });
+    $('#reload').click(function () {
+        window.location.reload(true);
+    })
 });

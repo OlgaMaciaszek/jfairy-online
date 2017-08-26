@@ -14,6 +14,7 @@ public class JFOProperties {
 	private int limit = 3000;
 	private String defaultLanguageTag = "EN";
 	private int textLimit = 1000;
+	private int randomStringLimit = 165;
 
 	public int getLimit() {
 		return limit;
@@ -25,5 +26,9 @@ public class JFOProperties {
 
 	public int getTextLimit() {
 		return textLimit;
+	}
+
+	public int getRandomStringLimit() {
+		return randomStringLimit;
 	}
 }

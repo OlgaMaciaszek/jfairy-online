@@ -59,7 +59,7 @@ public class TextService {
 	}
 
 	public String randomString(int charsCount) {
-		limitValidator.validateForText(charsCount);
+		limitValidator.validateForRandomString(charsCount);
 		return textProducer().randomString(charsCount);
 	}
 
