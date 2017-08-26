@@ -1,5 +1,7 @@
 package io.codearte.jFairyOnline.services.validation;
 
+import java.util.Optional;
+
 import io.codearte.jFairyOnline.config.JFOProperties;
 import io.codearte.jFairyOnline.exceptions.LimitExceededException;
 
@@ -19,9 +21,16 @@ public class LimitValidator {
 	}
 
 	public void validate(int number) {
-		int limit = properties.getLimit();
-		if (number > limit) {
-			throw new LimitExceededException(number, limit);
-		}
+		validate(number, properties.getLimit());
+	}
+
+	public void validateForText(int number) {
+		validate(number, properties.getTextLimit());
+	}
+
+	private void validate(int number, int limit) {
+		Optional.of(number)
+				.filter(num -> num <= limit)
+				.orElseThrow(() -> new LimitExceededException(number, limit));
 	}
 }

@@ -2,6 +2,7 @@ package io.codearte.jFairyOnline.services;
 
 import io.codearte.jFairyOnline.config.JFOProperties;
 import io.codearte.jFairyOnline.services.fairy.FairyProvider;
+import io.codearte.jFairyOnline.services.validation.LimitValidator;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.text.TextProducer;
 
@@ -16,10 +17,12 @@ public class TextService {
 
 	private final JFOProperties jfoProperties;
 	private final FairyProvider fairyProvider;
+	private final LimitValidator limitValidator;
 
-	public TextService(JFOProperties jfoProperties, FairyProvider fairyProvider) {
+	public TextService(JFOProperties jfoProperties, FairyProvider fairyProvider, LimitValidator limitValidator) {
 		this.jfoProperties = jfoProperties;
 		this.fairyProvider = fairyProvider;
+		this.limitValidator = limitValidator;
 	}
 
 	public String loremIpsum() {
@@ -31,26 +34,32 @@ public class TextService {
 	}
 
 	public String word(String languageTag, int count) {
+		limitValidator.validate(count);
 		return textProducer(languageTag).word(count);
 	}
 
 	public String latinWord(int count) {
+		limitValidator.validate(count);
 		return textProducer().latinWord(count);
 	}
 
 	public String latinSentence(int wordCount) {
+		limitValidator.validate(wordCount);
 		return textProducer().latinSentence(wordCount);
 	}
 
 	public String sentence(String languageTag, int wordCount) {
+		limitValidator.validate(wordCount);
 		return textProducer(languageTag).sentence(wordCount);
 	}
 
 	public String paragraph(String languageTag, int sentenceCount) {
+		limitValidator.validate(sentenceCount);
 		return textProducer(languageTag).paragraph(sentenceCount);
 	}
 
 	public String randomString(String languageTag, int charsCount) {
+		limitValidator.validate(charsCount);
 		return textProducer(languageTag).randomString(charsCount);
 	}
 

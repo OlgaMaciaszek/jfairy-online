@@ -2,6 +2,7 @@ package io.codearte.jFairyOnline.rest;
 
 import io.codearte.jFairyOnline.services.TextService;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,4 +19,10 @@ public class TextController {
 	public TextController(TextService textService) {
 		this.textService = textService;
 	}
+
+	@GetMapping("/loremIpsum")
+	public String loremIpsum() {
+		return textService.loremIpsum();
+	}
+
 }

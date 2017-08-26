@@ -13,6 +13,7 @@ public class JFOProperties {
 
 	private int limit = 3000;
 	private String defaultLanguageTag = "EN";
+	private int textLimit = 1000;
 
 	public int getLimit() {
 		return limit;
@@ -20,5 +21,9 @@ public class JFOProperties {
 
 	public String getDefaultLanguageTag() {
 		return defaultLanguageTag;
+	}
+
+	public int getTextLimit() {
+		return textLimit;
 	}
 }
