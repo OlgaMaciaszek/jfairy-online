@@ -12,8 +12,13 @@ import org.springframework.stereotype.Component;
 public class JFOProperties {
 
 	private int limit = 3000;
+	private String defaultLanguageTag = "EN";
 
 	public int getLimit() {
 		return limit;
+	}
+
+	public String getDefaultLanguageTag() {
+		return defaultLanguageTag;
 	}
 }
