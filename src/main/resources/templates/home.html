@@ -12,7 +12,7 @@
 </head>
 <body style="margin: 0.8%;">
 <div class="jumbotron text-center">
-    <h1>JFairy Online</h1>
+    <h1>jFairy Online</h1>
     <h2>Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.<br/>
         <small>
             This app has been developed by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a> as a
@@ -21,7 +21,8 @@
         </small>
     </h2>
 </div>
-<div class="panel panel-primary">
+<div class="panel panel-primary" data-toggle="tooltip"
+     title="Select data language, record count and fields to be displayed.">
     <div class="panel-heading">Generate Person Data</div>
     <div class="panel-body">
         <form th:action="@{/persons}" method="get">
@@ -53,6 +54,43 @@
                     </div>
                 </div>
             </div>
+            <div class="form-inline">
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
+                              th:checked="checked"/>First Name</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="middleName"
+                              th:checked="checked"/>Middle Name</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="address"
+                              th:checked="checked"/>Address</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="email"
+                              th:checked="Email"/>Last Name</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="username"
+                              th:checked="checked"/>Username</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="password"
+                              th:checked="checked"/>Password</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="gender"
+                              th:checked="Gender"/>Username</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                              th:value="telephoneNumber" th:checked="checked"/>Telephone Number</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="dateOfBirth"
+                              th:checked="checked"/>Date of Birth</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="age"
+                              th:checked="checked"/>Age</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyName"
+                              th:checked="checked"/>Company Name</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyWebsite"
+                              th:checked="checked"/>Company Website</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyEmail"
+                              th:checked="checked"/>Company Email</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                              th:value="companyVatIdentificationNumber" th:checked="checked"/>Company VATIN</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                              th:value="nationalIdentityCardNumber" th:checked="checked"/>National Identity Card Number</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                              th:value="nationalIdentificationNumber" th:checked="checked"/>National Identification
+                    Number</label>
+                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="passportNumber"
+                              th:checked="checked"/>Passport Number</label>
+            </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
@@ -61,9 +99,116 @@
                 <div class="col-md-4"></div>
             </div>
         </form>
-
     </div>
 </div>
+<div class="panel panel-primary" data-toggle="tooltip"
+     title="Select data language, record count and fields to be displayed.">
+    <div class="panel-heading">Generate Companies Data</div>
+    <div class="panel-body">
+        <form th:action="@{/companies}" method="get">
+            <div class="form-inline">
+                <label for="langs">Data Language:</label>
+                <div id="langs" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="EN"
+                                      th:checked="checked"/> EN</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ES"/> ES</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="FR"/> FR</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="DE"/> DE</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="SV"/> SV</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
+                        <div class="form-group" style="margin-left: 200px;">
+                            <label for="count"><b>Record Count:</b></label>
+                            <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline">
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="name"
+                              th:checked="checked"/>Name</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="website"
+                              th:checked="checked"/>Website</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="email"
+                              th:checked="checked"/>Email</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                              th:value="vatIdentificationNumber"
+                              th:checked="Email"/>VATIN</label>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block">Generate Companies</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-primary" data-toggle="tooltip"
+     title="Select data language, record count and fields to be displayed.">
+    <div class="panel-heading">Generate Companies Data</div>
+    <div class="panel-body">
+        <form th:action="@{/companies}" method="get">
+            <div class="form-inline">
+                <label for="langs">Data Language:</label>
+                <div id="langs" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="EN"
+                                      th:checked="checked"/> EN</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ES"/> ES</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="FR"/> FR</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="DE"/> DE</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="SV"/> SV</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
+                        <div class="form-group" style="margin-left: 200px;">
+                            <label for="count"><b>Record Count:</b></label>
+                            <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline">
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="name"
+                              th:checked="checked"/>Name</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="website"
+                              th:checked="checked"/>Website</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="email"
+                              th:checked="checked"/>Email</label>
+                <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                              th:value="vatIdentificationNumber"
+                              th:checked="Email"/>VATIN</label>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block">Generate Companies</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </form>
+
+    </div>
 <div class="panel panel-primary">
     <div class="panel-heading text-center"><h3>Generate Test Data</h3></div>
     <div class="panel-body">

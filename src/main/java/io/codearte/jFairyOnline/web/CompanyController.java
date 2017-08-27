@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CompanyController {
 
 	private static final String COMPANIES = "companies";
+	private static final String COMPANY_TABLE_CONFIG = "companyTableConfig";
+
 	private final CompanyService companyService;
 
 	public CompanyController(CompanyService companyService) {
@@ -29,9 +31,11 @@ public class CompanyController {
 	@GetMapping
 	public String companies(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
 	                        @RequestParam(value = "count", defaultValue = "100") int count,
+	                        @RequestParam(value = "companyTableConfig", defaultValue = "empty") String[] config,
 	                        Model model) {
 		Set<Company> companies = companyService.getCompanies(languageTag, count);
 		model.addAttribute(COMPANIES, companies);
+		model.addAttribute(COMPANY_TABLE_CONFIG, config);
 		return COMPANIES;
 	}
 }

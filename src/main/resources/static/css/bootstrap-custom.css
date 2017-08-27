@@ -139,7 +139,9 @@ html body div.page-header div.row div.col-md-1 {
     padding: 0.2%
 }
 
-html body div.panel.panel-primary div.panel-body form div.form-inline div#langs.form-group div.radio.radio-inline label input.form-control {
-    margin-right: 10px;
-    margin-bottom: 5px;
+html body div.panel.panel-primary div.panel-body form div.form-inline div#langs.form-group div.radio.radio-inline label input.form-control,
+html body div.panel.panel-primary div.panel-body form div.form-inline label input.form-control
+{
+    margin-right: 5px;
+    margin-bottom: 6px;
 }

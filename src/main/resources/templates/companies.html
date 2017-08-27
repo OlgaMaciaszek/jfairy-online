@@ -41,18 +41,22 @@
            data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Website</th>
-            <th>Email</th>
-            <th>VATIN</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'name')}">Name</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'website')}">Website</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'email')}">Email</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'vatIdentificationNumber')}">VATIN</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="company : ${companies}">
-            <td th:text="${company.name}">Name</td>
-            <td th:text="${'http://' + company.domain}">Website</td>
-            <td th:text="${company.email}">Email</td>
-            <td th:text="${company.vatIdentificationNumber}">VATIN</td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'name')}" th:text="${company.name}">Name</td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'website')}" th:text="${'http://' + company.domain}">
+                Website
+            </td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'email')}" th:text="${company.email}">Email</td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'vatIdentificationNumber')}"
+                th:text="${company.vatIdentificationNumber}">VATIN
+            </td>
         </tr>
         </tbody>
     </table>

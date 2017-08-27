@@ -29,9 +29,11 @@ public class PersonController {
 	@GetMapping
 	public String persons(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
 	                      @RequestParam(value = "count", defaultValue = "100") int count,
+	                      @RequestParam(value = "personTableConfig", defaultValue = "empty") String[] config,
 	                      Model model) {
 		Set<Person> persons = personService.getPersons(languageTag, count);
 		model.addAttribute(PERSONS, persons);
+		model.addAttribute("personTableConfig", config);
 		return PERSONS;
 	}
 }

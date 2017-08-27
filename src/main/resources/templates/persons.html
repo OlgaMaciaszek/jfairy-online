@@ -41,46 +41,75 @@
                data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
             <thead>
             <tr>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Sex</th>
-                <th>Telephone Number</th>
-                <th>Date of Birth</th>
-                <th>Age</th>
-                <th>Company Name</th>
-                <th>Company Website</th>
-                <th>Company Email</th>
-                <th>Company VATIN</th>
-                <th>National Identity Card Number</th>
-                <th>National Identification Number</th>
-                <th>Passport Number</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'firstName')}">First Name</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'middleName')}">Middle Name</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'lastName')}">Last Name</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'address')}">Address</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'email')}">Email</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'username')}">Username</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'password')}">Password</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'gender')}">Gender</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'telephoneNumber')}">Telephone Number</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'dateOfBirth')}">Date of Birth</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'age')}">Age</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'companyName')}">Company Name</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'companyWebsite')}">Company Website</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'companyEmail')}">Company Email</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'companyVatIdentificationNumber')}">Company VATIN</th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'nationalIdentityCardNumber')}">National Identity Card
+                    Number
+                </th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'nationalIdentificationNumber')}">National
+                    Identification Number
+                </th>
+                <th th:if="*{#arrays.contains(personTableConfig, 'passportNumber')}">Passport Number</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="person : ${persons}">
-                <td th:text="${person.firstName}">First Name</td>
-                <td th:text="${person.middleName}">Middle Name</td>
-                <td th:text="${person.lastName}">Last Name</td>
-                <td th:utext="${person.address.toString()}">Address</td>
-                <td th:text="${person.email}">Email</td>
-                <td th:text="${person.username}">Username</td>
-                <td th:text="${person.password}">Password</td>
-                <td th:text="${person.sex}">Sex</td>
-                <td th:text="${person.telephoneNumber}">Telephone Number</td>
-                <td th:text="${person.dateOfBirth}"> Date of Birth</td>
-                <td th:text="${person.age}">Age</td>
-                <td th:text="${person.company.name}">Company Name</td>
-                <td th:text="${'http://' + person.company.domain}">Company Website</td>
-                <td th:text="${person.companyEmail}">Company Email</td>
-                <td th:text="${person.company.vatIdentificationNumber}">Company VATIN</td>
-                <td th:text="${person.nationalIdentityCardNumber}">National Identity Card Number</td>
-                <td th:text="${person.nationalIdentificationNumber}">National Identification Number</td>
-                <td th:text="${person.passportNumber}">Passport Number</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'firstName')}" th:text="${person.firstName}">First
+                    Name
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'middleName')}" th:text="${person.middleName}">Middle
+                    Name
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'lastName')}" th:text="${person.lastName}">Last Name
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'address')}" th:utext="${person.address.toString()}">
+                    Address
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'email')}" th:text="${person.email}">Email</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'username')}" th:text="${person.username}">Username
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'password')}" th:text="${person.password}">Password
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'gender')}" th:text="${person.sex}">Sex</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'telephoneNumber')}"
+                    th:text="${person.telephoneNumber}">Telephone Number
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'dateOfBirth')}" th:text="${person.dateOfBirth}"> Date
+                    of Birth
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'age')}">Age</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'companyName')}" th:text="${person.company.name}">
+                    Company Name
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'companyWebsite')}"
+                    th:text="${'http://' + person.company.domain}">Company Website
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'companyEmail')}" th:text="${person.companyEmail}">
+                    Company Email
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'companyVatIdentificationNumber')}"
+                    th:text="${person.company.vatIdentificationNumber}">Company VATIN
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'nationalIdentityCardNumber')}"
+                    th:text="${person.nationalIdentityCardNumber}">National Identity Card Number
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'nationalIdentificationNumber')}"
+                    th:text="${person.nationalIdentificationNumber}">National Identification Number
+                </td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'passportNumber')}">Passport Number</td>
             </tr>
             </tbody>
         </table>
