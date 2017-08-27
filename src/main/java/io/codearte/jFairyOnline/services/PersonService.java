@@ -3,7 +3,7 @@ package io.codearte.jFairyOnline.services;
 import java.util.Set;
 
 import io.codearte.jFairyOnline.services.fairy.FairyProvider;
-import io.codearte.jFairyOnline.services.validation.LimitValidator;
+import io.codearte.jFairyOnline.services.validation.CountProvider;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.person.Person;
 
@@ -20,16 +20,16 @@ import static java.util.stream.IntStream.range;
 public class PersonService {
 
 	private final FairyProvider fairyProvider;
-	private final LimitValidator limitValidator;
+	private final CountProvider countProvider;
 
-	public PersonService(FairyProvider fairyProvider, LimitValidator limitValidator) {
+	public PersonService(FairyProvider fairyProvider, CountProvider countProvider) {
 		this.fairyProvider = fairyProvider;
-		this.limitValidator = limitValidator;
+		this.countProvider = countProvider;
 	}
 
 	public Set<Person> getPersons(String languageTag, int count) {
-		limitValidator.validate(count);
 		Fairy fairy = fairyProvider.getFairy(languageTag);
-		return range(0, count).mapToObj(num -> fairy.person()).collect(toSet());
+		return range(0, countProvider.valid(count))
+				.mapToObj(num -> fairy.person()).collect(toSet());
 	}
 }

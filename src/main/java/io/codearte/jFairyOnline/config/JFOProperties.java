@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JFOProperties {
 
-	private int limit = 3000;
+	private int limit = 1000;
 	private String defaultLanguageTag = "EN";
 	private int textLimit = 1000;
 	private int randomStringLimit = 165;

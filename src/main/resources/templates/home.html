@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>JFairy Online</title>
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
@@ -18,6 +20,49 @@
             Technology</a>.
         </small>
     </h2>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Generate Person Data</div>
+    <div class="panel-body">
+        <form th:action="@{/persons}" method="get">
+            <div class="form-inline">
+                <label for="langs">Data Language:</label>
+                <div id="langs" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="EN"
+                                      th:checked="checked"/> EN</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ES"/> ES</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="FR"/> FR</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="DE"/> DE</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="SV"/> SV</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
+                        <div class="form-group" style="margin-left: 200px;">
+                            <label for="count"><b>Record Count:</b></label>
+                            <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block">Generate Persons</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </form>
+
+    </div>
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading text-center"><h3>Generate Test Data</h3></div>

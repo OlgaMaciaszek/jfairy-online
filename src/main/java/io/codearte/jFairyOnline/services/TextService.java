@@ -2,7 +2,7 @@ package io.codearte.jFairyOnline.services;
 
 import io.codearte.jFairyOnline.config.JFOProperties;
 import io.codearte.jFairyOnline.services.fairy.FairyProvider;
-import io.codearte.jFairyOnline.services.validation.LimitValidator;
+import io.codearte.jFairyOnline.services.validation.CountProvider;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.text.TextProducer;
 
@@ -17,12 +17,12 @@ public class TextService {
 
 	private final JFOProperties jfoProperties;
 	private final FairyProvider fairyProvider;
-	private final LimitValidator limitValidator;
+	private final CountProvider countProvider;
 
-	public TextService(JFOProperties jfoProperties, FairyProvider fairyProvider, LimitValidator limitValidator) {
+	public TextService(JFOProperties jfoProperties, FairyProvider fairyProvider, CountProvider countProvider) {
 		this.jfoProperties = jfoProperties;
 		this.fairyProvider = fairyProvider;
-		this.limitValidator = limitValidator;
+		this.countProvider = countProvider;
 	}
 
 	public String loremIpsum() {
@@ -34,33 +34,33 @@ public class TextService {
 	}
 
 	public String word(String languageTag, int count) {
-		limitValidator.validateForText(count);
-		return textProducer(languageTag).word(count);
+		int validCount = countProvider.validForText(count);
+		return textProducer(languageTag).word(validCount);
 	}
 
 	public String latinWord(int count) {
-		limitValidator.validateForText(count);
-		return textProducer().latinWord(count);
+		int validCount = countProvider.validForText(count);
+		return textProducer().latinWord(validCount);
 	}
 
 	public String latinSentence(int wordCount) {
-		limitValidator.validateForText(wordCount);
-		return textProducer().latinSentence(wordCount);
+		int validWordCount = countProvider.validForText(wordCount);
+		return textProducer().latinSentence(validWordCount);
 	}
 
 	public String sentence(String languageTag, int wordCount) {
-		limitValidator.validateForText(wordCount);
-		return textProducer(languageTag).sentence(wordCount);
+		int validWordCount = countProvider.validForText(wordCount);
+		return textProducer(languageTag).sentence(validWordCount);
 	}
 
 	public String paragraph(String languageTag, int sentenceCount) {
-		limitValidator.validateForText(sentenceCount);
-		return textProducer(languageTag).paragraph(sentenceCount);
+		int validSentenceCount = countProvider.validForText(sentenceCount);
+		return textProducer(languageTag).paragraph(validSentenceCount);
 	}
 
 	public String randomString(int charsCount) {
-		limitValidator.validateForRandomString(charsCount);
-		return textProducer().randomString(charsCount);
+		int validCharsCount = countProvider.validForRandomString(charsCount);
+		return textProducer().randomString(validCharsCount);
 	}
 
 	private TextProducer textProducer(String languageTag) {

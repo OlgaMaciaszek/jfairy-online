@@ -11,7 +11,7 @@ import static java.util.stream.Collectors.toList;
  * @since 2017-01-02
  */
 public enum AllowedLanguageTags {
-	EN, PL, ES, FR, SV;
+	EN, PL, ES, FR, SV, DE, ZH;
 
 	public static String getAllowedLanguageTagsAsString() {
 		return String.join(", ", getValuesAsStrings());
