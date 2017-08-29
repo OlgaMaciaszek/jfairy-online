@@ -2,9 +2,10 @@ package io.codearte.jFairyOnline.model;
 
 import javax.validation.constraints.NotNull;
 
+import io.codearte.jFairyOnline.model.enums.Language;
+
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Language;
 
 /**
  * @author Olga Maciaszek-Sharma
