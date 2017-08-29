@@ -24,68 +24,12 @@ public class TextController {
 		this.textService = textService;
 	}
 
-	@GetMapping("/loremipsum")
-	public String loremIpsum(Model model) {
-		String text = textService.loremIpsum();
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
 	@GetMapping()
 	public String text(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                   Model model) {
-		String text = textService.text(languageTag);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/word")
-	public String word(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
 	                   @RequestParam(value = "count", defaultValue = "1") int count,
+	                   @RequestParam(value = "textType") String textType,
 	                   Model model) {
-		String text = textService.word(languageTag, count);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/latinword")
-	public String latinWord(@RequestParam(value = "count", defaultValue = "1") int count,
-	                        Model model) {
-		String text = textService.latinWord(count);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/sentence")
-	public String sentence(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                       @RequestParam(value = "count", defaultValue = "3") int count,
-	                       Model model) {
-		String text = textService.sentence(languageTag, count);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/latinsentence")
-	public String latinSentence(@RequestParam(value = "count", defaultValue = "3") int wordCount,
-	                            Model model) {
-		String text = textService.latinSentence(wordCount);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/paragraph")
-	public String paragraph(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                        @RequestParam(value = "count", defaultValue = "3") int sentenceCount,
-	                        Model model) {
-		String text = textService.paragraph(languageTag, sentenceCount);
-		model.addAttribute(TEXT, text);
-		return TEXT;
-	}
-
-	@GetMapping("/random")
-	public String random(@RequestParam(value = "count", defaultValue = "10") int charsCount,
-	                     Model model) {
-		String text = textService.randomString(charsCount);
+		String text = textService.getForType(languageTag, count, textType);
 		model.addAttribute(TEXT, text);
 		return TEXT;
 	}

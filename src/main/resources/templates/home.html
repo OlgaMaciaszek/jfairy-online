@@ -156,10 +156,10 @@
     </div>
 </div>
 <div class="panel panel-primary" data-toggle="tooltip"
-     title="Select data language, record count and fields to be displayed.">
-    <div class="panel-heading">Generate Companies Data</div>
+     title="Select data language, unit count and type of text to be displayed.">
+    <div class="panel-heading">Generate Text</div>
     <div class="panel-body">
-        <form th:action="@{/companies}" method="get">
+        <form id="textform" th:action="@{/text}" method="get">
             <div class="form-inline">
                 <label for="langs">Data Language:</label>
                 <div id="langs" class="form-group">
@@ -182,47 +182,58 @@
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
                         <div class="form-group" style="margin-left: 200px;">
-                            <label for="count"><b>Record Count:</b></label>
-                            <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
+                            <label for="count"><b>Count:</b></label>
+                            <input class="form-control" type="number" id="count" th:name="count" th:value="1"/>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-inline">
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="name"
-                              th:checked="checked"/>Name</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="website"
-                              th:checked="checked"/>Website</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="email"
-                              th:checked="checked"/>Email</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
-                              th:value="vatIdentificationNumber"
-                              th:checked="Email"/>VATIN</label>
+                <div id="textType" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType" th:value="text"
+                                      th:checked="checked"/> Text</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="loremIpsum" th:attr="data-action=@{/text/loremIpsum}"/> Lorem
+                            Ipsum</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="word" th:attr="data-action=@{/text/word}"/> Word</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="latinWord" th:attr="data-action=@{/text/latinWord}"/> Latin Word</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="sentence" th:attr="data-action=@{/text/sentence}"/> Sentence</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="latinSentence" th:attr="data-action=@{/text/latinSentence}"/> Latin
+                            Sentence</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="paragraph" th:attr="data-action=@{/text/paragraph}"/> Paragraph</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="textType"
+                                      th:value="random" th:attr="data-action=@{/text/random}"/> Random</label>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary btn-block">Generate Companies</button>
+                    <button type="submit" class="btn btn-primary btn-block">Generate Text</button>
                 </div>
                 <div class="col-md-4"></div>
             </div>
         </form>
-
-    </div>
-<div class="panel panel-primary">
-    <div class="panel-heading text-center"><h3>Generate Test Data</h3></div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/persons'">Generate Persons</button>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/companies'">Generate Companies</button>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/text'">Generate Text</button>
-            </div>
-        </div>
     </div>
 </div>
 <button class="btn btn-lg btn-block">Contribute - add locale-specific data</button>
