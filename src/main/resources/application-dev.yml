@@ -5,3 +5,4 @@ logging:
   level:
     com.github.dandelion: DEBUG
     com.github.dandelion.datatables: DEBUG
+    org.springframework.data.mongodb : DEBUG

@@ -5,10 +5,13 @@ import java.util.Set;
 import io.codearte.jFairyOnline.services.PersonService;
 import io.codearte.jfairy.producer.person.Person;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.http.ResponseEntity.ok;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -25,9 +28,10 @@ public class PersonController {
 	}
 
 	@GetMapping
-	Set<Person> persons(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
-	                    @RequestParam(value = "count", defaultValue = "100") int count) {
-		return personService.getPersons(languageTag, count);
+	public ResponseEntity<Set<Person>> persons(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
+	                                           @RequestParam(value = "count", defaultValue = "100") int count) {
+		Set<Person> persons = personService.getPersons(languageTag, count);
+		return ok(persons);
 	}
 
 }
