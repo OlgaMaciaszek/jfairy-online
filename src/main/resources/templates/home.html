@@ -47,12 +47,12 @@
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
+                    </div>
+                </div>
                         <div class="form-group" style="margin-left: 200px;">
                             <label for="count"><b>Record Count:</b></label>
                             <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
                         </div>
-                    </div>
-                </div>
             </div>
             <div class="form-inline">
                 <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
@@ -196,33 +196,33 @@
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="loremIpsum" th:attr="data-action=@{/text/loremIpsum}"/> Lorem
+                                      th:value="loremIpsum"/> Lorem
                             Ipsum</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="word" th:attr="data-action=@{/text/word}"/> Word</label>
+                                      th:value="word"/> Word</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="latinWord" th:attr="data-action=@{/text/latinWord}"/> Latin Word</label>
+                                      th:value="latinWord"/> Latin Word</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="sentence" th:attr="data-action=@{/text/sentence}"/> Sentence</label>
+                                      th:value="sentence"/> Sentence</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="latinSentence" th:attr="data-action=@{/text/latinSentence}"/> Latin
+                                      th:value="latinSentence"/> Latin
                             Sentence</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="paragraph" th:attr="data-action=@{/text/paragraph}"/> Paragraph</label>
+                                      th:value="paragraph"/> Paragraph</label>
                     </div>
                     <div class="radio radio-inline">
                         <label><input class="form-control" type="radio" th:name="textType"
-                                      th:value="random" th:attr="data-action=@{/text/random}"/> Random</label>
+                                      th:value="random"/> Random</label>
                     </div>
                 </div>
             </div>
@@ -236,6 +236,6 @@
         </form>
     </div>
 </div>
-<button class="btn btn-lg btn-block">Contribute - add locale-specific data</button>
+<button class="btn btn-lg btn-block" onclick="location.href='/data'">Contribute - add locale-specific data</button>
 </body>
 </html>

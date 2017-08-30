@@ -1,8 +1,6 @@
 package io.codearte.jFairyOnline.services.validation;
 
-import java.util.Arrays;
-
-import io.codearte.jFairyOnline.exceptions.IllegalLanguageTagException;
+import io.codearte.jFairyOnline.exceptions.IllegalLanguageTag;
 
 import org.springframework.stereotype.Component;
 
@@ -17,7 +15,7 @@ public class LanguageTagValidator {
 
 	public void validate(String languageTag) {
 		if (languageTagNotAllowed(languageTag)) {
-			throw new IllegalLanguageTagException(languageTag);
+			throw new IllegalLanguageTag(languageTag);
 		}
 	}
 

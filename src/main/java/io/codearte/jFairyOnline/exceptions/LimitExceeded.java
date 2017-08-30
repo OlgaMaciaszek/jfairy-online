@@ -1,16 +1,17 @@
 package io.codearte.jFairyOnline.exceptions;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 /**
  * @author Olga Maciaszek-Sharma
  * @since 2017-01-01
  */
-@ResponseStatus(HttpStatus.BAD_REQUEST)
-public class LimitExceededException extends RuntimeException {
+@ResponseStatus(BAD_REQUEST)
+public class LimitExceeded extends RuntimeException {
 
-	public LimitExceededException(int count, int limit) {
+	public LimitExceeded(int count, int limit) {
 		super("The provided count: " + count + " is too high. Please provide a count equal " + limit + " or smaller.");
 	}
 }

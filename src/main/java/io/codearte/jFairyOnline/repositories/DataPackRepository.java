@@ -1,5 +1,7 @@
 package io.codearte.jFairyOnline.repositories;
 
+import java.util.Optional;
+
 import io.codearte.jFairyOnline.model.DataPack;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,4 +13,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface DataPackRepository extends MongoRepository<DataPack, String> {
 
 	DataPack getOneById(String dataPackId);
+
+	Optional<DataPack> findOneById(String dataPackId);
 }

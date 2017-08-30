@@ -1,9 +1,6 @@
 package io.codearte.jFairyOnline.services.validation;
 
-import java.util.Optional;
-
 import io.codearte.jFairyOnline.config.JFOProperties;
-import io.codearte.jFairyOnline.exceptions.LimitExceededException;
 
 import org.springframework.stereotype.Component;
 

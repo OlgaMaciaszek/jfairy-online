@@ -14,11 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "datapacks")
 public class DataPack {
 
-	protected String id;
-	protected DataType dataType;
-	protected Language language;
-	protected Set<DataItem> dataItems;
-	protected boolean processed = false;
+	private String id;
+	private DataType dataType;
+	private Language language;
+	private Set<DataItem> dataItems;
+	private boolean processed = false;
 
 	public DataPack(DataType dataType, Language language, Set<DataItem> dataItems) {
 		this.dataType = dataType;

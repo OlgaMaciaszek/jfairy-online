@@ -9,13 +9,22 @@ import io.codearte.jFairyOnline.services.DataService;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.OPTIONS;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 /**
  * @author Olga Maciaszek-Sharma
@@ -23,6 +32,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  */
 @RestController("restDataController")
 @RequestMapping("rest/data")
+@CrossOrigin(origins = "*", methods = {OPTIONS, GET, POST, PUT, DELETE})
 public class DataController {
 
 	private final DataService dataService;
@@ -50,4 +60,12 @@ public class DataController {
 		DataPack dataPack = dataService.getDataPack(dataPackId);
 		return ResponseEntity.ok(dataPack);
 	}
+
+	@DeleteMapping(value = "/{dataPackId}")
+	public ResponseEntity<Void> deleteDataItems(@PathVariable String dataPackId,
+	                                            @RequestParam(value = "dataItem", required = false) Long[] dataItemIds) {
+		dataService.deleteDataItems(dataPackId, dataItemIds);
+		return ResponseEntity.accepted().build();
+	}
+
 }
