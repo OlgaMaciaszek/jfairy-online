@@ -81,6 +81,18 @@ public class DataService {
 		return dataPackRepository.save(dataPack);
 	}
 
+	public Optional<DataPack> getFirstUnprocessedDataPack(Language language, DataType dataType) {
+		if (language != null && dataType != null) {
+			return dataPackRepository.findFirstByLanguageAndDataTypeAndProcessedFalse(language, dataType);
+		} else if (language != null) {
+			return dataPackRepository.findFirstByLanguageAndProcessedFalse(language);
+		} else if (dataType != null) {
+			return dataPackRepository.findFirstByDataTypeAndProcessedFalse(dataType);
+		} else {
+			return dataPackRepository.findFirstByProcessedFalse();
+		}
+	}
+
 	private void initialiseMethodMap(NameService nameService, LastNameService lastNameService, CompanyNameService companyNameService, StreetService streetService, CityService cityService) {
 		methodMap.put(FEMALE_NAME, nameService::processFemale);
 		methodMap.put(MALE_NAME, nameService::processMale);
