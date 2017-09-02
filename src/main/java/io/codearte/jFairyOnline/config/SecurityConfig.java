@@ -3,13 +3,17 @@ package io.codearte.jFairyOnline.config;
 import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Pattern;
 
+import io.codearte.jFairyOnline.services.MongoUserDetailsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
@@ -23,9 +27,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-				.inMemoryAuthentication()
-				.withUser("user").password("password").roles("USER");
+		UserDetailsService userDetailsService = mongoUserDetails();
+		auth.userDetailsService(userDetailsService);
+	}
+
+	@Bean
+	UserDetailsService mongoUserDetails() {
+		return new MongoUserDetailsService();
 	}
 
 	@Override
@@ -34,6 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/", "/persons", "/companies", "/text/**", "/rest/**",
 						"/webjars/**", "/dandelion-assets/**", "/dandelion/**", "/data")
 				.permitAll()
+				.antMatchers("/admin/**", "/data/review/**", "/data/delete", "/data/process")
+				.hasAuthority("admin")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()

@@ -8,7 +8,6 @@ import io.codearte.jFairyOnline.model.enums.DataType;
 import io.codearte.jFairyOnline.model.enums.Language;
 import io.codearte.jFairyOnline.services.DataService;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +44,6 @@ public class DataController {
 	}
 
 	@GetMapping("/review")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String displayDataReviewForm(@RequestParam(value = LANG, required = false) Language language,
 	                                    @RequestParam(value = DATA_TYPE, required = false) DataType dataType,
 	                                    Model model) {
@@ -60,7 +58,6 @@ public class DataController {
 	}
 
 	@GetMapping("/review/{dataPackId}")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String continueReview(@PathVariable("dataPackId") String dataPackId,
 	                             Model model) {
 		DataPack dataPack = dataService.getDataPack(dataPackId);
@@ -75,14 +72,12 @@ public class DataController {
 	}
 
 	@PostMapping("/delete")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String deleteDataItems(@ModelAttribute DataPackDTO dataPackDTO) {
 		dataService.deleteDataItems(dataPackDTO.getId(), dataPackDTO.getDataItemsToDelete());
 		return "redirect:/data/review/" + dataPackDTO.getId();
 	}
 
 	@PostMapping("/process")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String process(@ModelAttribute DataPackDTO dataPackDTO,
 	                      RedirectAttributes redirectAttributes) {
 		dataService.process(dataPackDTO.getId());
