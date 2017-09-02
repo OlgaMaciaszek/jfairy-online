@@ -1,5 +1,6 @@
 package io.codearte.jFairyOnline.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import io.codearte.jFairyOnline.model.DataRecord;
@@ -21,4 +22,11 @@ public interface DataRecordRepository extends MongoRepository<DataRecord, String
 	Optional<DataRecord> findFirstByValueAndLanguageAndJFairyDataKeyAndGender(String value, Language language,
 	                                                                          JFairyDataKey jFairyDataKey,
 	                                                                          Gender gender);
+
+	Optional<DataRecord> findFirstByJFairyDataKeyAndLanguage(JFairyDataKey jFairyDataKey, Language language);
+
+	List<DataRecord> getAllByJFairyDataKeyAndLanguage(JFairyDataKey jFairyDataKey, Language language);
+
+	List<DataRecord> getAllByJFairyDataKeyAndGenderAndLanguage(JFairyDataKey jFairyDataKey, Gender gender,
+	                                                           Language language);
 }

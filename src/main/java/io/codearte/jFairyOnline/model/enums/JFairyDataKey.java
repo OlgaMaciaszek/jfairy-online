@@ -1,5 +1,9 @@
 package io.codearte.jFairyOnline.model.enums;
 
+import io.codearte.jFairyOnline.exceptions.IllegalDataKey;
+
+import static java.util.Arrays.stream;
+
 /**
  * @author Olga Maciaszek-Sharma
  * @since 9/2/17
@@ -30,5 +34,10 @@ public enum JFairyDataKey {
 
 	public String getKeyValue() {
 		return keyValue;
+	}
+
+	public static JFairyDataKey getByKeyValue(String keyValue) {
+		return stream(JFairyDataKey.values()).filter(jFairyDataKey -> keyValue.equals(jFairyDataKey.getKeyValue()))
+				.findFirst().orElseThrow(() -> new IllegalDataKey(keyValue));
 	}
 }

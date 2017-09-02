@@ -13,6 +13,7 @@ buildscript {
 		datatablesVersion = '1.1.0'
 		dandelionVersion = '1.1.1'
 		fongoVersion = '2.0.12'
+		guiceVersion = '4.1.0'
 	}
 
 	dependencies {
@@ -81,6 +82,7 @@ dependencies {
 	compile group: 'com.github.dandelion', name: 'datatables-export-itext', version: "${datatablesVersion}"
 	compile group: 'com.github.dandelion', name: 'datatables-export-poi-ooxml', version: "${datatablesVersion}"
 	compile group: 'com.github.dandelion', name: 'datatables-spring3', version: "${datatablesVersion}"
+	compile group: 'com.google.inject', name: 'guice', version: "${guiceVersion}"
 	optional('org.springframework.boot:spring-boot-devtools')
 	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
