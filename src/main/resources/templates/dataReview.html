@@ -27,7 +27,9 @@
         </div>
     </div>
 </div>
-<div><h2><span th:text="${'Review data pack: ' + dataPack.id}"></span></h2></div>
+<div><h3><span
+        th:text="${'Review data pack: ' + dataPack.id + ', language: ' + dataPack.language + ', data type: ' + dataPack.dataType}"></span>
+</h3></div>
 <div class="row">
     <div class="col-md-6">
         <div th:unless="${#lists.isEmpty(dataPack.dataItems)}">
