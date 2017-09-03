@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
 
-	private static final String ADMIN = "admin";
-	private static final String DATA_REVIEW = "dataReview";
-	private static final String INFO = "info";
+	static final String ADMIN = "admin";
+	static final String DATA_REVIEW = "dataReview";
+	static final String INFO = "info";
+	static final String NO_UNPROCESSED_DATA_PACKS = "There are no unprocessed data packs for the selected language and data type.";
 
 	@GetMapping
 	public String adminPanel(Model model) {
@@ -27,7 +28,7 @@ public class AdminController {
 
 	@GetMapping("/noPack")
 	public String adminPanelDataPackNotFound(Model model) {
-		model.addAttribute(INFO, "There are no unprocessed data packs for the selected language and data type.");
+		model.addAttribute(INFO, NO_UNPROCESSED_DATA_PACKS);
 		model.addAttribute(DATA_REVIEW, new AdminDataReviewDTO());
 		return ADMIN;
 	}

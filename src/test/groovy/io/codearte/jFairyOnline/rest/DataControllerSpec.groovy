@@ -1,5 +1,7 @@
 package io.codearte.jFairyOnline.rest
 
+import spock.lang.IgnoreIf
+
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -12,6 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON
  * @author Olga Maciaszek-Sharma
  * @since 9/3/17
  */
+@IgnoreIf({!Boolean.valueOf(properties['integration'])})
 class DataControllerSpec extends RestControllerSpec {
 
 	def 'should create data pack'() {

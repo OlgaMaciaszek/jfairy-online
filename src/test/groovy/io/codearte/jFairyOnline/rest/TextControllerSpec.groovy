@@ -1,5 +1,6 @@
 package io.codearte.jFairyOnline.rest
 
+import spock.lang.IgnoreIf
 import spock.lang.Unroll
 
 import org.springframework.http.HttpStatus
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity
  * @author Olga Maciaszek-Sharma
  * @since 9/3/17
  */
+@IgnoreIf({!Boolean.valueOf(properties['integration'])})
 class TextControllerSpec extends RestControllerSpec {
 
 	@Unroll

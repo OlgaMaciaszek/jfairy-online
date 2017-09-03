@@ -14,7 +14,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  * @since 6/25/2017
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class RestControllerSpec extends Specification {
+abstract class RestControllerSpec extends Specification {
 
 	@Autowired
 	protected TestRestTemplate restTemplate

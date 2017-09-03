@@ -26,10 +26,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/data")
 public class DataController {
 
-	private static final String DATA_PACK = "dataPack";
+	static final String DATA_PACK = "dataPack";
 	private static final String DATA_REVIEW = "dataReview";
 	private static final String LANG = "lang";
 	private static final String DATA_TYPE = "dataType";
+	static final String DATA_INPUT_CONFIRM = "dataInputConfirm";
 
 	private final DataService dataService;
 
@@ -68,7 +69,7 @@ public class DataController {
 	@PostMapping
 	public String addDataPack(@ModelAttribute DataPackDTO dto) {
 		dataService.savePack(dto);
-		return "dataInputConfirm";
+		return DATA_INPUT_CONFIRM;
 	}
 
 	@PostMapping("/delete")

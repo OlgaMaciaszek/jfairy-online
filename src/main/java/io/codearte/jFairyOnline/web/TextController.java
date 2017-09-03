@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/text")
 public class TextController {
 
-	private static final String TEXT = "text";
+	static final String TEXT = "text";
 
 	private final TextService textService;
 
