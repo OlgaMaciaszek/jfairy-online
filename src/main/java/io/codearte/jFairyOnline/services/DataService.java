@@ -58,28 +58,11 @@ public class DataService {
 		return dataPackRepository.getOneById(dataPackId);
 	}
 
-	private Set<DataItem> getDataItems(DataPackDTO dto) {
-		return range(0, dto.getData().size())
-				.mapToObj(num -> new DataItem(num, dto.getData().get(num)))
-				.collect(toSet());
-	}
-
 	public void deleteDataItems(String dataPackId, Long[] dataItemIds) {
 		DataPack dataPack = getUnprocessedDataPack(dataPackId);
-		if (dataItemIds == null) {
-			dataPackRepository.delete(dataPackId);
-		} else {
+		if (dataItemIds != null) {
 			deleteSelectedDataItems(dataItemIds, dataPack);
 		}
-	}
-
-	private Gender getGender(DataPackDTO dto) {
-		if (FEMALE_NAME.equals(dto.getDataType()) || FEMALE_LAST_NAME.equals(dto.getDataType())) {
-			return FEMALE;
-		} else if (MALE_NAME.equals(dto.getDataType()) || MALE_LAST_NAME.equals(dto.getDataType())) {
-			return MALE;
-		}
-		return null;
 	}
 
 	public Optional<DataPack> getFirstUnprocessedDataPack(Language language, DataType dataType) {
@@ -92,6 +75,20 @@ public class DataService {
 		} else {
 			return dataPackRepository.findFirstByProcessedFalse();
 		}
+	}
+
+	public DataPack process(String dataPackId) {
+		DataPack dataPack = getUnprocessedDataPack(dataPackId);
+		dataPack.getDataItems().forEach(item -> valueService.process(item.getValue(), dataPack.getLanguage(),
+				dataPack.getjFairyDataKey(), dataPack.getGender()));
+		dataPack.setProcessed(true);
+		return dataPackRepository.save(dataPack);
+	}
+
+	private Set<DataItem> getDataItems(DataPackDTO dto) {
+		return range(0, dto.getData().size())
+				.mapToObj(num -> new DataItem(num, dto.getData().get(num)))
+				.collect(toSet());
 	}
 
 	private DataPack getUnprocessedDataPack(String dataPackId) {
@@ -116,11 +113,12 @@ public class DataService {
 		return JFairyDataKey.valueOf(dto.getDataType().name());
 	}
 
-	public DataPack process(String dataPackId) {
-		DataPack dataPack = getUnprocessedDataPack(dataPackId);
-		dataPack.getDataItems().forEach(item -> valueService.process(item.getValue(), dataPack.getLanguage(),
-				dataPack.getjFairyDataKey(), dataPack.getGender()));
-		dataPack.setProcessed(true);
-		return dataPackRepository.save(dataPack);
+	private Gender getGender(DataPackDTO dto) {
+		if (FEMALE_NAME.equals(dto.getDataType()) || FEMALE_LAST_NAME.equals(dto.getDataType())) {
+			return FEMALE;
+		} else if (MALE_NAME.equals(dto.getDataType()) || MALE_LAST_NAME.equals(dto.getDataType())) {
+			return MALE;
+		}
+		return null;
 	}
 }

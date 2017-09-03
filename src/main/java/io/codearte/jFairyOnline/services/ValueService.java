@@ -27,7 +27,7 @@ import static org.springframework.util.StringUtils.capitalize;
 public class ValueService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ValueService.class);
-	private static final String MISSING_VALUE_PLACEHOLDER = "???";
+	static final String MISSING_VALUE_PLACEHOLDER = "???";
 
 	private final DataRecordRepository dataRecordRepository;
 

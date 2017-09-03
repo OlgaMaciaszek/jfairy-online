@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/", "/persons", "/companies", "/text/**", "/rest/**",
-						"/webjars/**", "/dandelion-assets/**", "/dandelion/**", "/data")
+						"/webjars/**", "/dandelion-assets/**", "/dandelion/**", "/data", "/mgmt/**")
 				.permitAll()
 				.antMatchers("/admin/**", "/data/review/**", "/data/delete", "/data/process")
 				.hasAuthority("admin")

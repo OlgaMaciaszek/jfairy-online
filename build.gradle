@@ -14,6 +14,7 @@ buildscript {
 		dandelionVersion = '1.1.1'
 		fongoVersion = '2.0.12'
 		guiceVersion = '4.1.0'
+		cglibNoDepVersion = '3.2.5'
 	}
 
 	dependencies {
@@ -73,6 +74,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile group: 'io.codearte.jfairy', name: 'jfairy', version: "${jFairyVersion}"
 	compile group: 'org.webjars', name: 'bootstrap', version: "${bootstrapVersion}"
 	compile group: 'org.webjars', name: 'jquery', version: "${jQueryVersion}"
@@ -89,6 +91,7 @@ dependencies {
 	testCompile group: 'org.spockframework', name: 'spock-core', version: "${spockVersion}"
 	testCompile group: 'org.spockframework', name: 'spock-spring', version: "${spockVersion}"
 	testCompile group: 'com.github.fakemongo', name: 'fongo', version: "${fongoVersion}"
+	testCompile group: 'cglib', name: 'cglib-nodep', version: "${cglibNoDepVersion}"
 }
 
 jar {
