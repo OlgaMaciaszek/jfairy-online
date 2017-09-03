@@ -48,7 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/", "/persons", "/companies", "/text/**", "/rest/**",
-						"/webjars/**", "/dandelion-assets/**", "/dandelion/**", "/data", "/mgmt/**")
+						"/webjars/**", "/dandelion-assets/**", "/dandelion/**", "/data", "/mgmt/**",
+						"/v2/api-docs")
 				.permitAll()
 				.antMatchers("/admin/**", "/data/review/**", "/data/delete", "/data/process")
 				.hasAuthority("admin")
@@ -82,6 +83,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/css/**", "/scripts/**");
+		web.ignoring().antMatchers("/css/**", "/scripts/**", "/swagger-ui**");
 	}
 }

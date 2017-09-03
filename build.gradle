@@ -15,6 +15,7 @@ buildscript {
 		fongoVersion = '2.0.12'
 		guiceVersion = '4.1.0'
 		cglibNoDepVersion = '3.2.5'
+		swaggerVersion = '2.7.0'
 	}
 
 	dependencies {
@@ -85,6 +86,8 @@ dependencies {
 	compile group: 'com.github.dandelion', name: 'datatables-export-poi-ooxml', version: "${datatablesVersion}"
 	compile group: 'com.github.dandelion', name: 'datatables-spring3', version: "${datatablesVersion}"
 	compile group: 'com.google.inject', name: 'guice', version: "${guiceVersion}"
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: "${swaggerVersion}"
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: "${swaggerVersion}"
 	optional('org.springframework.boot:spring-boot-devtools')
 	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
