@@ -24,7 +24,7 @@ public class TextController {
 		this.textService = textService;
 	}
 
-	@GetMapping("/loremipsum")
+	@GetMapping("/loremIpsum")
 	public ResponseEntity<String> loremIpsum() {
 		String loremIpsum = textService.loremIpsum();
 		return ok(loremIpsum);
@@ -43,7 +43,7 @@ public class TextController {
 		return ok(word);
 	}
 
-	@GetMapping("/latinword")
+	@GetMapping("/latinWord")
 	public ResponseEntity<String> latinWord(@RequestParam(value = "count", defaultValue = "1") int count) {
 		String latinWord = textService.latinWord(count);
 		return ok(latinWord);
@@ -56,7 +56,7 @@ public class TextController {
 		return ok(sentence);
 	}
 
-	@GetMapping("/latinsentence")
+	@GetMapping("/latinSentence")
 	public ResponseEntity<String> latinSentence(@RequestParam(value = "count", defaultValue = "1") int wordCount) {
 		String latinSentence = textService.latinSentence(wordCount);
 		return ok(latinSentence);

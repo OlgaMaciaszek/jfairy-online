@@ -9,6 +9,7 @@ import io.codearte.jFairyOnline.services.DataService;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,12 +50,13 @@ public class DataController {
 	}
 
 	@GetMapping("/{dataPackId}")
-	public ResponseEntity<DataPack> getDataPacks(@PathVariable String dataPackId) {
+	public ResponseEntity<DataPack> getDataPack(@PathVariable String dataPackId) {
 		DataPack dataPack = dataService.getDataPack(dataPackId);
 		return ResponseEntity.ok(dataPack);
 	}
 
 	@DeleteMapping("/{dataPackId}")
+	@PreAuthorize("hasAuthority('admin')")
 	public ResponseEntity<Void> deleteDataItems(@PathVariable String dataPackId,
 	                                            @RequestParam(value = "dataItem", required = false) Long[] dataItemIds) {
 		dataService.deleteDataItems(dataPackId, dataItemIds);
@@ -62,6 +64,7 @@ public class DataController {
 	}
 
 	@PutMapping("/{dataPackId}/process")
+	@PreAuthorize("hasAuthority('admin')")
 	public ResponseEntity<DataPack> process(@PathVariable String dataPackId) {
 		DataPack dataPack = dataService.process(dataPackId);
 		return ResponseEntity.ok(dataPack);
