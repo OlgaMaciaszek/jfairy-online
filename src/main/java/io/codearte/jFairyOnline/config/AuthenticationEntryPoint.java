@@ -1,4 +1,4 @@
-package io.codearte.jFairyOnline.model.security;
+package io.codearte.jFairyOnline.config;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
