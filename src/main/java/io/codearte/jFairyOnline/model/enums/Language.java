@@ -6,5 +6,5 @@ package io.codearte.jFairyOnline.model.enums;
  */
 public enum Language {
 
-	EN, ES, FR, DE, SV, ZH
+	EN, PL, ES, FR, DE, SV, ZH
 }

@@ -109,7 +109,8 @@
                 <td th:if="*{#arrays.contains(personTableConfig, 'nationalIdentificationNumber')}"
                     th:text="${person.nationalIdentificationNumber}">National Identification Number
                 </td>
-                <td th:if="*{#arrays.contains(personTableConfig, 'passportNumber')}">Passport Number</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'passportNumber')}"
+                th:text="${person.passportNumber}">Passport Number</td>
             </tr>
             </tbody>
         </table>

@@ -31,31 +31,35 @@
 <div class="panel panel-primary">
     <div class="panel-heading">Review data packs</div>
     <div class="panel-body">
-        <form th:action="@{/data/review}" th:object="${dataReview}" method="get">
+        <form th:action="@{/data/review}" method="get">
             <div class="form-inline">
                 <div id="langs" class="form-group">
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="EN"
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="EN"
                                       th:checked="checked"/> EN</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="ES"/>
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ES"/>
                             ES</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="FR"/>
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="PL"/>
+                            PL</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="FR"/>
                             FR</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="DE"/>
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="DE"/>
                             DE</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="SV"/>
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="SV"/>
                             SV</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{language}" th:value="ZH"/>
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/>
                             ZH</label>
                     </div>
                 </div>
@@ -63,34 +67,34 @@
             <div class="form-inline">
                 <div id="dataTypes" class="form-group">
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}" th:value="FEMALE_NAME"
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="FEMALE_NAME"
                                       th:checked="checked"/> Female Name</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}" th:value="MALE_NAME"/>
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="MALE_NAME"/>
                             Male
                             Name</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}"
+                        <label><input class="form-control" type="radio" th:name="dataType"
                                       th:value="FEMALE_LAST_NAME"/>
                             Female Last Name</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}"
+                        <label><input class="form-control" type="radio" th:name="dataType"
                                       th:value="MALE_LAST_NAME"/>
                             Male Last Name</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}" th:value="COMPANY_NAME"/>
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="COMPANY_NAME"/>
                             Company Name</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}" th:value="STREET"/>
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="STREET"/>
                             Street</label>
                     </div>
                     <div class="radio radio-inline">
-                        <label><input class="form-control" type="radio" th:field="*{dataType}" th:value="CITY"/>
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="CITY"/>
                             City</label>
                     </div>
                 </div>
