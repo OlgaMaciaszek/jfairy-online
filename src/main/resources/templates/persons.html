@@ -90,7 +90,8 @@
                 <td th:if="*{#arrays.contains(personTableConfig, 'dateOfBirth')}" th:text="${person.dateOfBirth}"> Date
                     of Birth
                 </td>
-                <td th:if="*{#arrays.contains(personTableConfig, 'age')}">Age</td>
+                <td th:if="*{#arrays.contains(personTableConfig, 'age')}" th:text="${person.age}">Age
+                </td>
                 <td th:if="*{#arrays.contains(personTableConfig, 'companyName')}" th:text="${person.company.name}">
                     Company Name
                 </td>
