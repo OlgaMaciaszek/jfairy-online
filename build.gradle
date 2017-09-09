@@ -12,7 +12,6 @@ buildscript {
 		jQueryVersion = '3.2.1'
 		datatablesVersion = '1.1.0'
 		dandelionVersion = '1.1.1'
-		fongoVersion = '2.0.12'
 		guiceVersion = '4.1.0'
 		cglibNoDepVersion = '3.2.5'
 		swaggerVersion = '2.7.0'
@@ -93,7 +92,6 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'org.spockframework', name: 'spock-core', version: "${spockVersion}"
 	testCompile group: 'org.spockframework', name: 'spock-spring', version: "${spockVersion}"
-	testCompile group: 'com.github.fakemongo', name: 'fongo', version: "${fongoVersion}"
 	testCompile group: 'cglib', name: 'cglib-nodep', version: "${cglibNoDepVersion}"
 }
 
