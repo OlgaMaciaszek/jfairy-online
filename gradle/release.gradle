@@ -1,0 +1,45 @@
+apply plugin: 'com.bmuschko.nexus'
+
+modifyPom {
+	project {
+		name 'jFairy-Online'
+		packaging 'jar'
+		description 'A web application for test data generation using jFairy lib.'
+		url 'https://github.com/Codearte/jfairy-online'
+		inceptionYear '2016'
+		licenses {
+			license {
+				name 'The Apache Software License, Version 2.0'
+				url 'http://www.apache.org/licenses/LICENSE-2.0'
+				distribution 'repo'
+			}
+		}
+		scm {
+			connection 'scm:git:git@github.com:Codearte/jfairy-online.git'
+			developerConnection 'scm:git:git@github.com:Codearte/jfairy-online.git'
+			url 'https://github.com/Codearte/jfairy-online'
+		}
+
+		licenses {
+			license {
+				name 'The Apache License, Version 2.0'
+				url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+			}
+		}
+
+		developers {
+			developer {
+				id 'olga.maciaszek'
+				name 'Olga Maciaszek-Sharma'
+				url 'http://olgamaciaszek.github.io'
+				email 'olga.maciaszek ATT gmail DOTT com'
+				roles {
+					role 'developer'
+				}
+			}
+		}
+	}
+}
+
+uploadArchives.dependsOn {check}
+

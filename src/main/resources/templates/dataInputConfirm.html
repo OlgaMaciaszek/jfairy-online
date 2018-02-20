@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Input Confirmation</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.8%;">
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-11">
+        </div>
+        <div class="col-md-1">
+            <div class="btn-group">
+                <h2>
+                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
+                            class="glyphicon glyphicon-home"></span> Home
+                    </button>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-body text-center">
+        <h1>Thank you for your contribution.</h1>
+        <h3>The data you submitted has been saved. It will be added to our database once it has been approved by the
+            admin.</h3>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button class="btn btn-primary btn-block" id="addMore" onclick="location.href='/data'">Add more data
+            </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+</body>
+</html>

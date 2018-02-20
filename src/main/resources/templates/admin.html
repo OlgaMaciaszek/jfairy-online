@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin Panel</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.8%;">
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-11">
+            <h1>Admin Panel</h1>
+        </div>
+        <div class="col-md-1">
+            <div class="btn-group">
+                <h2>
+                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
+                            class="glyphicon glyphicon-home"></span> Home
+                    </button>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Review data packs</div>
+    <div class="panel-body">
+        <form th:action="@{/data/review}" method="get">
+            <div class="form-inline">
+                <div id="langs" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="EN"
+                                      th:checked="checked"/> EN</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ES"/>
+                            ES</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="PL"/>
+                            PL</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="FR"/>
+                            FR</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="DE"/>
+                            DE</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="SV"/>
+                            SV</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/>
+                            ZH</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div id="dataTypes" class="form-group">
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="FEMALE_NAME"
+                                      th:checked="checked"/> Female Name</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="MALE_NAME"/>
+                            Male
+                            Name</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType"
+                                      th:value="FEMALE_LAST_NAME"/>
+                            Female Last Name</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType"
+                                      th:value="MALE_LAST_NAME"/>
+                            Male Last Name</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="COMPANY_NAME"/>
+                            Company Name</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="STREET"/>
+                            Street</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <label><input class="form-control" type="radio" th:name="dataType" th:value="CITY"/>
+                            City</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block">Review Data Pack</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

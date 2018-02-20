@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Data Review</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.8%">
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Data Review</h1>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-group">
+                <h2>
+                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
+                            class="glyphicon glyphicon-home"></span> Home
+                    </button>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div><h3><span
+        th:text="${'Review data pack: ' + dataPack.id + ', language: ' + dataPack.language + ', data type: ' + dataPack.dataType}"></span>
+</h3></div>
+<div class="row">
+    <div class="col-md-6">
+        <div th:unless="${#lists.isEmpty(dataPack.dataItems)}">
+            <table id="contentTable" class="table table-striped table-condensed"
+                   data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="dataItem : ${dataPack.dataItems}">
+                    <td th:text="${dataItem.id}">Id</td>
+                    <td th:text="${dataItem.value}">Value</td>
+                </tr>
+                </tbody>
+            </table>
+            <form th:action="@{/data/delete}" th:object="${dataPack}" method="post">
+                <fieldset>
+                    <legend>Insert ids of data items to be deleted:</legend>
+                    <div class="form-inline">
+                        <input th:field="*{id}" th:hidden="hidden"/>
+                        <input th:field="*{dataItemsToDelete}" type="text" class="form-control"/>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span>
+                            Delete
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+<div>
+    <form th:action="@{/data/process}" th:object="${dataPack}" method="post">
+        <fieldset>
+            <input th:field="*{id}" th:hidden="hidden"/>
+            <button type="submit" class="btn btn-primary" style="margin-top:20px;"><span
+                    class="glyphicon glyphicon-ok"></span> Process Data Pack
+            </button>
+        </fieldset>
+    </form>
+</div>
+<div id="copyContent" class="outOfView"></div>
+</body>
+</html>

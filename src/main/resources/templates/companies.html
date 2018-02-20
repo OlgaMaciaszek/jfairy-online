@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+    <title>Companies</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/scripts/customBehaviour.js"></script>
+</head>
+<body style="margin: 0.8%;">
+<div dt:conf="contentTable">
+    <div dt:confType="export" dt:type="csv" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="xlsx" dt:cssClass="btn-primary"></div>
+    <div dt:confType="export" dt:type="pdf" dt:cssClass="btn-primary"></div>
+</div>
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Companies</h1>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-group">
+                <h2>
+                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
+                            class="glyphicon glyphicon-home"></span> Home
+                    </button>
+                    <button class="btn btn-primary" id="reload"><span class="glyphicon glyphicon-refresh"></span> Reload
+                    </button>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:unless="${#lists.isEmpty(companies)}">
+    <table id="contentTable" dt:table="true" class="table-striped table-condensed"
+           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%"
+           data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
+        <thead>
+        <tr>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'name')}">Name</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'website')}">Website</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'email')}">Email</th>
+            <th th:if="*{#arrays.contains(companyTableConfig, 'vatIdentificationNumber')}">VATIN</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="company : ${companies}">
+            <td th:if="*{#arrays.contains(companyTableConfig, 'name')}" th:text="${company.name}">Name</td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'website')}" th:text="${'http://' + company.domain}">
+                Website
+            </td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'email')}" th:text="${company.email}">Email</td>
+            <td th:if="*{#arrays.contains(companyTableConfig, 'vatIdentificationNumber')}"
+                th:text="${company.vatIdentificationNumber}">VATIN
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="copyContent" class="outOfView"></div>
+</body>
+
+</html>

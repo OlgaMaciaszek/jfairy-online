@@ -1,0 +1,147 @@
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #e6f2ff;
+}
+
+.table-striped {
+    white-space: nowrap;
+}
+
+.buffer {
+    padding: 1%;
+    width: -moz-min-content;
+    width: -webkit-min-content;
+    display: inline-block;
+}
+
+.outOfView {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current:hover {
+    color: #001933 !important;
+    border: 1px solid #cce5ff;
+    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e6f2ff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, white 0%, #e6f2ff 100%);
+    /* W3C */
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    *cursor: hand;
+    color: #001933 !important;
+    border: 1px solid transparent;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current:hover {
+    color: #001933 !important;
+    border: 1px solid #cce5ff;
+    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e6f2ff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, white 0%, #e6f2ff 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, white 0%, #e6f2ff 100%);
+    /* W3C */
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.disabled:active {
+    cursor: default;
+    color: #003e80 !important;
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:hover,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers a#contentTable_previous.paginate_button.previous:hover,
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers a#contentTable_next.paginate_button.next:hover {
+    color: white !important;
+    border: 1px solid #0056b3;
+    background-color: #0056b3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0056b3), color-stop(100%, #003e80));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #0056b3 0%, #003e80 100%);
+    /* W3C */
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button:active {
+    outline: none;
+    background-color: #0056b3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0056b3),
+    color-stop(100%, #003e80));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, #0056b3 0%, #003e80 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #0056b3 0%, #003e80 100%);
+    /* W3C */
+    box-shadow: inset 0 0 3px #003e80;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_filter.dataTables_filter {
+    margin-right: 0.2%;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div.dataTables_export {
+    margin-right: 2%;
+}
+
+html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div.dataTables_export a.btn-primary {
+    margin: 0.5%;
+    font-size: 90%;
+    padding: 5%;
+}
+
+html body div.panel.panel-primary {
+    margin: 2%;
+}
+
+html body div.page-header div.row div.col-md-1 {
+    padding: 0.2%
+}
+
+html body div.panel.panel-primary div.panel-body form div.form-inline div#langs.form-group div.radio.radio-inline label input.form-control,
+html body div.panel.panel-primary div.panel-body form div.form-inline label input.form-control
+{
+    margin-right: 5px;
+    margin-bottom: 6px;
+}

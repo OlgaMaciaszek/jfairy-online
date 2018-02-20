@@ -1,0 +1,111 @@
+buildscript {
+	ext {
+		groovyVersion = '2.4.11'
+		springBootVersion = '1.5.6.RELEASE'
+		axionPluginVersion = '1.7.1'
+		gradleNexusPluginVersion = '2.3.1'
+		nexusStagingPluginVersion = '0.9.0'
+		prodepsPluginVersion = '0.0.10.RELEASE'
+		jFairyVersion = '0.5.7'
+		spockVersion = '1.1-groovy-2.4'
+		bootstrapVersion = '3.3.7-1'
+		jQueryVersion = '3.2.1'
+		datatablesVersion = '1.1.0'
+		dandelionVersion = '1.1.1'
+		guiceVersion = '4.1.0'
+		cglibNoDepVersion = '3.2.5'
+		swaggerVersion = '2.7.0'
+	}
+
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "pl.allegro.tech.build:axion-release-plugin:${axionPluginVersion}"
+		classpath "com.bmuschko:gradle-nexus-plugin:${gradleNexusPluginVersion}"
+		classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:${nexusStagingPluginVersion}"
+		classpath "io.spring.gradle:propdeps-plugin:${prodepsPluginVersion}"
+		classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+	}
+	repositories {
+		mavenCentral()
+		maven {
+			url "http://repo.spring.io/snapshot"
+		}
+		maven {
+			url 'http://repo.spring.io/plugins-release'
+		}
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'pl.allegro.tech.build.axion-release'
+apply plugin: 'io.codearte.nexus-staging'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'idea'
+apply from: "$rootDir/gradle/release.gradle"
+
+scmVersion {
+	tag {prefix = "jfairy-online"}
+	createReleaseCommit = true
+	releaseCommitMessage {version, position -> "Release version: ${version}\n\n[ci skip]"}
+}
+
+project.version = scmVersion.version
+
+nexusStaging {
+	packageGroup = "io.codearte"
+	stagingProfileId = '93c08fdebde1ff'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile group: 'io.codearte.jfairy', name: 'jfairy', version: "${jFairyVersion}"
+	compile group: 'org.webjars', name: 'bootstrap', version: "${bootstrapVersion}"
+	compile group: 'org.webjars', name: 'jquery', version: "${jQueryVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-thymeleaf', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'dandelion-core'
+	compile group: 'com.github.dandelion', name:'dandelion-thymeleaf', version: "${dandelionVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-export-itext', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-export-poi-ooxml', version: "${datatablesVersion}"
+	compile group: 'com.github.dandelion', name: 'datatables-spring3', version: "${datatablesVersion}"
+	compile group: 'com.google.inject', name: 'guice', version: "${guiceVersion}"
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: "${swaggerVersion}"
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: "${swaggerVersion}"
+	optional('org.springframework.boot:spring-boot-devtools')
+	testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'org.spockframework', name: 'spock-core', version: "${spockVersion}"
+	testCompile group: 'org.spockframework', name: 'spock-spring', version: "${spockVersion}"
+	testCompile group: 'cglib', name: 'cglib-nodep', version: "${cglibNoDepVersion}"
+}
+
+jar {
+	baseName = 'jfairy-online'
+	version = '0.0.1-SNAPSHOT'
+	manifest {
+		attributes(
+				'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+				'Main-Class': 'io.codearte.jFairyOnline.JFairyOnlineApplication'
+		)
+	}
+}
+
+
+
+

@@ -1,0 +1,11 @@
+spring:
+    thymeleaf:
+      cache: false
+logging:
+  level:
+    com.github.dandelion: DEBUG
+    com.github.dandelion.datatables: DEBUG
+    org.springframework.data.mongodb : DEBUG
+management:
+  security:
+    enabled: false

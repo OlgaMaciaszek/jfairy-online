@@ -1,0 +1,8 @@
+spring:
+    data:
+      mongodb:
+        database: jFairyOnlineDb
+server:
+  port: 8000
+management:
+  context-path: /mgmt
