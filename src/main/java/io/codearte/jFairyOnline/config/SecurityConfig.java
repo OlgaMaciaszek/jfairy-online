@@ -83,6 +83,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/css/**", "/scripts/**", "/swagger-ui**");
+		web.ignoring().antMatchers("/css/**", "/scripts/**", "/swagger-ui**", "/bootstrap-ds-custom/**");
 	}
 }

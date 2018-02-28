@@ -5,10 +5,10 @@
       xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <head>
     <title>Companies</title>
-    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/bootstrap-ds-custom/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
     <script src="/scripts/customBehaviour.js"></script>
 </head>
 <body style="margin: 0.8%;">
@@ -37,7 +37,7 @@
 </div>
 <div th:unless="${#lists.isEmpty(companies)}">
     <table id="contentTable" dt:table="true" class="table-striped table-condensed"
-           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:scrollX="100%"
+           dt:export="csv,xlsx,pdf" dt:pagingType="simple_numbers" dt:lengthMenu="15,25,50,100" dt:scrollX="100%"
            data-toggle="tooltip" title="Click on a cell to copy it; double-click to copy the entire row.">
         <thead>
         <tr>
