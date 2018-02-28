@@ -145,3 +145,57 @@ html body div.panel.panel-primary div.panel-body form div.form-inline label inpu
     margin-right: 5px;
     margin-bottom: 6px;
 }
+
+.jumbotron {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.jumbotron > .container {
+    margin-left: 120px;
+}
+
+.jumbotron-header {
+    margin-top: 47px;
+}
+
+.jumbotron-column {
+    min-height: 150px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.footer-table {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-text {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    margin-top: 500px;
+    text-align: center;
+}
+
+.panel-container {
+    width: 1300px;
+}

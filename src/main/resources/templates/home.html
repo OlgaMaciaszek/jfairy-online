@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Data Fairy</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
     <link href="/bootstrap-ds-custom/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="/css/bootstrap-custom.css" type="text/css" rel="stylesheet" media="screen"/>
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
@@ -11,6 +12,7 @@
     <script src="/scripts/customBehaviour.js"></script>
 </head>
 <body style="margin: 0.8%;">
+<main role="main">
 <div class="btn-group pull-right">
     <button class="btn btn-link" onclick="location.href='/login'">Log In</button>
     <button class="btn btn-link" onclick="location.href='/login?logout'">Log Out</button>
@@ -18,23 +20,17 @@
 </div>
 <div class="jumbotron text-center">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <h1>Data Fairy</h1>
-                <h2>Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy
-                    library</a>.<br/>
-                    <small>
-                        Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.<br/>
-                        Powered by <a href="https://devskiller.com/">Devskiller</a>.
-                    </small>
-                </h2>
+        <div class="row justify-content-start">
+            <div class="col-lg-4">
+                <img src="/images/logo.svg" class="pull-left"/>
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-8 pull-right align-self-center jumbotron-column">
+                <h1 class="jumbotron-header">Test Data Generator</h1>
+            </div>
         </div>
-
     </div>
 </div>
+    <div class="container panel-container">
 <div class="panel panel-primary" data-toggle="tooltip"
      title="Select data language, record count and fields to be displayed.">
     <div class="panel-heading">Generate Person Data</div>
@@ -66,10 +62,10 @@
                         <label><input class="form-control" type="radio" th:name="lang" th:value="ZH"/> ZH</label>
                     </div>
                 </div>
-                        <div class="form-group" style="margin-left: 200px;">
-                            <label for="count"><b>Record Count:</b></label>
-                            <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
-                        </div>
+                <div class="form-group" style="margin-left: 200px;">
+                    <label for="count"><b>Record Count:</b></label>
+                    <input class="form-control" type="number" id="count" th:name="count" th:value="100"/>
+                </div>
             </div>
             <div class="form-inline">
                 <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
@@ -260,5 +256,14 @@
     </div>
 </div>
 <button class="btn btn-lg btn-block" onclick="location.href='/data'">Contribute - add locale-specific data</button>
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.
+            Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.
+            Powered by <a href="https://devskiller.com/">Devskiller</a>.</span>
+    </div>
+</footer>
 </body>
 </html>
