@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import io.codearte.jFairyOnline.dto.DataPackDTO;
 import io.codearte.jFairyOnline.exceptions.IllegalDataPack;
+import io.codearte.jFairyOnline.model.Contributor;
 import io.codearte.jFairyOnline.model.DataItem;
 import io.codearte.jFairyOnline.model.DataPack;
 import io.codearte.jFairyOnline.model.enums.DataType;
@@ -46,7 +47,7 @@ public class DataService {
 
 	public DataPack savePack(DataPackDTO dto) {
 		DataPack dataPack = new DataPack(dto.getDataType(), dto.getLanguage(), getGender(dto),
-				getJFairyDataKey(dto), getDataItems(dto));
+				getJFairyDataKey(dto), getDataItems(dto), getContributor(dto));
 		return dataPackRepository.save(dataPack);
 	}
 
@@ -80,9 +81,13 @@ public class DataService {
 	public DataPack process(String dataPackId) {
 		DataPack dataPack = getUnprocessedDataPack(dataPackId);
 		dataPack.getDataItems().forEach(item -> valueService.process(item.getValue(), dataPack.getLanguage(),
-				dataPack.getjFairyDataKey(), dataPack.getGender()));
+				dataPack.getJFairyDataKey(), dataPack.getGender()));
 		dataPack.setProcessed(true);
 		return dataPackRepository.save(dataPack);
+	}
+
+	private Contributor getContributor(DataPackDTO dto) {
+		return new Contributor(dto.getContributorName(), dto.getContributorSurname(), dto.getContributorEmail());
 	}
 
 	private Set<DataItem> getDataItems(DataPackDTO dto) {

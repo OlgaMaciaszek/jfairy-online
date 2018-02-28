@@ -23,6 +23,10 @@ public class DataPackDTO {
 	private List<String> data;
 	private Set<DataItem> dataItems;
 	private Long[] dataItemsToDelete;
+	private String contributorName;
+	private String contributorSurname;
+	private String contributorEmail;
+	private boolean dataAgreement = false;
 
 	public DataPackDTO() {
 	}
@@ -84,5 +88,37 @@ public class DataPackDTO {
 
 	public void setDataItemsToDelete(Long[] dataItemsToDelete) {
 		this.dataItemsToDelete = dataItemsToDelete;
+	}
+
+	public String getContributorName() {
+		return contributorName;
+	}
+
+	public void setContributorName(String contributorName) {
+		this.contributorName = contributorName;
+	}
+
+	public String getContributorSurname() {
+		return contributorSurname;
+	}
+
+	public void setContributorSurname(String contributorSurname) {
+		this.contributorSurname = contributorSurname;
+	}
+
+	public String getContributorEmail() {
+		return contributorEmail;
+	}
+
+	public void setContributorEmail(String contributorEmail) {
+		this.contributorEmail = contributorEmail;
+	}
+
+	public boolean isDataAgreement() {
+		return dataAgreement;
+	}
+
+	public void setDataAgreement(boolean dataAgreement) {
+		this.dataAgreement = dataAgreement;
 	}
 }

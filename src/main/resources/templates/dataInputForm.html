@@ -103,10 +103,24 @@
                 <label for="data">Insert data separated by commas:</label>
                 <textarea th:field="*{data}" maxlength="20000" class="form-control" rows="20" id="data"></textarea>
             </div>
+            <div class="forminline">
+                <label for="contributorName">Name</label>
+                <input th:field="*{contributorName}" maxlength="200" class="form-control" id="contributorName"/>
+                <label for="contributorSurname">Surname</label>
+                <input th:field="*{contributorSurname}" maxlength="200" class="form-control" id="contributorSurname"/>
+                <label for="contributorEmail">Email</label>
+                <input th:field="*{contributorEmail}" maxlength="200" class="form-control" id="contributorEmail"/>
+            </div>
+            <div class="forminline">
+                <label for="dataAgreement"></label><input class="form-control" type="checkbox"
+                                                          th:field="*{dataAgreement}" th:value="${true}" id="dataAgreement"/>
+            </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block"
+                            th:disabled="${(dataPack.contributorName != null or dataPack.contributorSurname != null
+                            or dataPack.contributorEmail != null) and dataPack.dataAgreement == false}">Submit</button>
                 </div>
                 <div class="col-md-4"></div>
             </div>
