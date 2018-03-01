@@ -199,3 +199,15 @@ html body div.panel.panel-primary div.panel-body form div.form-inline label inpu
 .panel-container {
     width: 1300px;
 }
+
+.added-margin-top {
+    margin-top: 15px;
+}
+
+.added-large-margin-top {
+    margin-top: 30px;
+}
+
+.added-margin-bottom {
+    margin-bottom: 15px;
+}

@@ -10,6 +10,7 @@
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
     <script src="/scripts/customBehaviour.js"></script>
+    <script src="/scripts/validateInput.js"></script>
 </head>
 <body style="margin: 0.8%;">
 <div class="page-header">
@@ -102,11 +103,57 @@
             <div class="form-group">
                 <label for="data">Insert data separated by commas:</label>
                 <textarea th:field="*{data}" maxlength="20000" class="form-control" rows="20" id="data"></textarea>
+                <div class="alert alert-danger added-margin-top" role="alert" th:if="${#fields.hasErrors('data')}" th:errors="*{data}">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Data Error:</span>
+                </div>
             </div>
-            <div class="row">
+            <div class="forminline added-margin-bottom added-large-margin-top">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label for="contributorName">Name (Optional - for List of Contributors)</label>
+                        <input th:field="*{contributorName}" maxlength="200" class="form-control" id="contributorName"/>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="contributorSurname">Surname (Optional - for List of Contributors)</label>
+                        <input th:field="*{contributorSurname}" maxlength="200" class="form-control"
+                               id="contributorSurname"/>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="contributorEmail">Email (Optional - for List of Contributors)</label>
+                        <input th:field="*{contributorEmail}" maxlength="200" class="form-control"
+                               id="contributorEmail"/>
+                        <div class="alert alert-danger added-margin-top" role="alert" th:if="${#fields.hasErrors('contributorEmail')}">
+                            <span class="sr-only">Contributor Email Error:</span>
+                            <span th:errors="*{contributorEmail}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forminline">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input class="form-control pull-right" type="checkbox" th:field="*{dataAgreement}"
+                               id="dataAgreement"/>
+                    </div>
+                    <div class="col-lg-11">
+                        <label for="dataAgreement" class="added-margin-top">I hereby agree for processing and storing my
+                            personal data, included
+                            in this form, for the purpose of adding this contribution.</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-11">
+                        <span class="glyphicon glyphicon-info-sign"><small>   You only need to mark this checkbox if you are submitting any personal data.</small></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row added-large-margin-top">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
                 </div>
                 <div class="col-md-4"></div>
             </div>

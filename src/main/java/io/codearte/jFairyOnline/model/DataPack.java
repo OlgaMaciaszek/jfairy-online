@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @since 8/29/17
  */
 @Document(collection = "datapacks")
-public class DataPack {
+public class DataPack extends BaseEntity {
 
 	private String id;
 	private DataType dataType;
@@ -22,15 +22,17 @@ public class DataPack {
 	private Gender gender;
 	private JFairyDataKey jFairyDataKey;
 	private Set<DataItem> dataItems;
+	private Contributor contributor;
 	private boolean processed = false;
 
 	public DataPack(DataType dataType, Language language, Gender gender, JFairyDataKey jFairyDataKey,
-	                Set<DataItem> dataItems) {
+	                Set<DataItem> dataItems, Contributor contributor) {
 		this.dataType = dataType;
 		this.language = language;
 		this.dataItems = dataItems;
 		this.jFairyDataKey = jFairyDataKey;
 		this.gender = gender;
+		this.contributor = contributor;
 	}
 
 	public String getId() {
@@ -77,11 +79,19 @@ public class DataPack {
 		this.gender = gender;
 	}
 
-	public JFairyDataKey getjFairyDataKey() {
+	public JFairyDataKey getJFairyDataKey() {
 		return jFairyDataKey;
 	}
 
-	public void setjFairyDataKey(JFairyDataKey jFairyDataKey) {
+	public void setJFairyDataKey(JFairyDataKey jFairyDataKey) {
 		this.jFairyDataKey = jFairyDataKey;
+	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
 	}
 }

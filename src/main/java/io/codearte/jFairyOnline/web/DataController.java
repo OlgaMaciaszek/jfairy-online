@@ -1,5 +1,6 @@
 package io.codearte.jFairyOnline.web;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 import io.codearte.jFairyOnline.dto.DataPackDTO;
@@ -10,6 +11,7 @@ import io.codearte.jFairyOnline.services.DataService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,7 +69,11 @@ public class DataController {
 	}
 
 	@PostMapping
-	public String addDataPack(@ModelAttribute DataPackDTO dto) {
+	public String addDataPack(@Valid @ModelAttribute("dataPack") DataPackDTO dto, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute(DATA_PACK, dto);
+			return "dataInputForm";
+		}
 		dataService.savePack(dto);
 		return DATA_INPUT_CONFIRM;
 	}

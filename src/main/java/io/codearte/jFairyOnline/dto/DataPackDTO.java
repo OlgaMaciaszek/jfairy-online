@@ -7,6 +7,8 @@ import io.codearte.jFairyOnline.model.DataItem;
 import io.codearte.jFairyOnline.model.DataPack;
 import io.codearte.jFairyOnline.model.enums.DataType;
 import io.codearte.jFairyOnline.model.enums.Language;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import static io.codearte.jFairyOnline.model.enums.DataType.FEMALE_NAME;
 import static io.codearte.jFairyOnline.model.enums.Language.EN;
@@ -20,9 +22,15 @@ public class DataPackDTO {
 	private String id;
 	private Language language = EN;
 	private DataType dataType = FEMALE_NAME;
+	@NotEmpty
 	private List<String> data;
 	private Set<DataItem> dataItems;
 	private Long[] dataItemsToDelete;
+	private String contributorName;
+	private String contributorSurname;
+	@Email
+	private String contributorEmail;
+	private boolean dataAgreement = false;
 
 	public DataPackDTO() {
 	}
@@ -84,5 +92,37 @@ public class DataPackDTO {
 
 	public void setDataItemsToDelete(Long[] dataItemsToDelete) {
 		this.dataItemsToDelete = dataItemsToDelete;
+	}
+
+	public String getContributorName() {
+		return contributorName;
+	}
+
+	public void setContributorName(String contributorName) {
+		this.contributorName = contributorName;
+	}
+
+	public String getContributorSurname() {
+		return contributorSurname;
+	}
+
+	public void setContributorSurname(String contributorSurname) {
+		this.contributorSurname = contributorSurname;
+	}
+
+	public String getContributorEmail() {
+		return contributorEmail;
+	}
+
+	public void setContributorEmail(String contributorEmail) {
+		this.contributorEmail = contributorEmail;
+	}
+
+	public boolean isDataAgreement() {
+		return dataAgreement;
+	}
+
+	public void setDataAgreement(boolean dataAgreement) {
+		this.dataAgreement = dataAgreement;
 	}
 }

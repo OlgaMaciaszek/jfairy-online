@@ -37,7 +37,7 @@ public class DataController {
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Void> addDataPack(@RequestBody DataPackDTO dto) {
-		DataPack dataPack = dataService.savePack(dto);
+		DataPack dataPack = dataService.savePackWithoutContributor(dto);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{dataPackId}")
 				.buildAndExpand(dataPack.getId()).toUri();
 		return ResponseEntity.created(location).build();

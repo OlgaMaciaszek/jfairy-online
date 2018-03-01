@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @since 9/2/17
  */
 @Document(collection = "users")
-public class User {
+public class User extends BaseEntity {
 
 	private String id;
 	private String name;
