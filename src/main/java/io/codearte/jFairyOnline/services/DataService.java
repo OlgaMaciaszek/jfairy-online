@@ -51,6 +51,12 @@ public class DataService {
 		return dataPackRepository.save(dataPack);
 	}
 
+	public DataPack savePackWithoutContributor(DataPackDTO dto) {
+		DataPack dataPack = new DataPack(dto.getDataType(), dto.getLanguage(), getGender(dto),
+				getJFairyDataKey(dto), getDataItems(dto), new Contributor("", "", ""));
+		return dataPackRepository.save(dataPack);
+	}
+
 	public List<DataPack> getDataPacks() {
 		return dataPackRepository.findAll();
 	}
