@@ -1,6 +1,6 @@
 spring:
     data:
       mongodb:
-        database: jFairyOnlineDb
+        database: dataFairyDb
 management:
   context-path: /mgmt
