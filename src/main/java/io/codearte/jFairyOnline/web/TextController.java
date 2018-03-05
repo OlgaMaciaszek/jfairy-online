@@ -24,7 +24,7 @@ public class TextController {
 		this.textService = textService;
 	}
 
-	@GetMapping()
+	@GetMapping
 	public String text(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
 	                   @RequestParam(value = "count", defaultValue = "1") int count,
 	                   @RequestParam(value = "textType") String textType,

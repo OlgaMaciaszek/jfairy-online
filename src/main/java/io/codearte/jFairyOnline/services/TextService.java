@@ -12,6 +12,10 @@ import io.codearte.jfairy.producer.text.TextProducer;
 
 import org.springframework.stereotype.Service;
 
+import static java.lang.String.join;
+import static java.lang.System.lineSeparator;
+import static java.util.Collections.nCopies;
+
 /**
  * @author Olga Maciaszek-Sharma
  * @since 8/26/17
@@ -47,12 +51,14 @@ public class TextService {
 		return textProducer().loremIpsum();
 	}
 
-	private String loremIpsum(String languageTag, int count) {
-		return loremIpsum();
+	public String loremIpsum(String languageTag, int count) {
+		int validCount = countProvider.validForText(count);
+		return join(lineSeparator(), nCopies(validCount, loremIpsum()));
 	}
 
 	public String text(String languageTag, int count) {
-		return text(languageTag);
+		int validCount = countProvider.validForText(count);
+		return join(lineSeparator(), nCopies(validCount, text(languageTag)));
 	}
 
 	public String text(String languageTag) {

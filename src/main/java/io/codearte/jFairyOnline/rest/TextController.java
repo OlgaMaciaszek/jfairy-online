@@ -25,14 +25,15 @@ public class TextController {
 	}
 
 	@GetMapping("/loremIpsum")
-	public ResponseEntity<String> loremIpsum() {
-		String loremIpsum = textService.loremIpsum();
+	public ResponseEntity<String> loremIpsum(@RequestParam(value = "count", defaultValue = "1") int count) {
+		String loremIpsum = textService.loremIpsum("", count);
 		return ok(loremIpsum);
 	}
 
-	@GetMapping()
-	public ResponseEntity<String> text(@RequestParam(value = "lang", defaultValue = "EN") String languageTag) {
-		String text = textService.text(languageTag);
+	@GetMapping
+	public ResponseEntity<String> text(@RequestParam(value = "lang", defaultValue = "EN") String languageTag,
+	                                   @RequestParam(value = "count", defaultValue = "1") int count) {
+		String text = textService.text(languageTag, count);
 		return ok(text);
 	}
 

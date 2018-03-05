@@ -40,7 +40,7 @@ public class DataController {
 		this.dataService = dataService;
 	}
 
-	@GetMapping()
+	@GetMapping
 	public String displayDataInputForm(Model model) {
 		model.addAttribute(DATA_PACK, new DataPackDTO());
 		return "dataInputForm";
