@@ -64,7 +64,8 @@
                 </div>
                 <div class="form-group" style="margin-left: 200px;">
                     <label for="count"><b>Record Count:</b></label>
-                    <input class="form-control" type="number" id="count" th:name="count" th:min="1" th:value="100"/>
+                    <input class="form-control" type="number" id="count" th:name="count" th:min="1" th:max="1000"
+                           th:value="100"/>
                 </div>
             </div>
             <div class="form-inline">
@@ -146,7 +147,7 @@
                         <div class="form-group" style="margin-left: 200px;">
                             <label for="count"><b>Record Count:</b></label>
                             <input class="form-control" type="number" id="count" th:name="count" th:min="1"
-                                   th:value="100"/>
+                                   th:max="1000" th:value="100"/>
                         </div>
                     </div>
                 </div>
@@ -204,7 +205,7 @@
                         <div class="form-group" style="margin-left: 200px;">
                             <label for="count"><b>Count:</b></label>
                             <input class="form-control" type="number" id="count" th:name="count" th:min="1"
-                                   th:value="1"/>
+                                   th:max="1000" th:value="1"/>
                         </div>
                     </div>
                 </div>

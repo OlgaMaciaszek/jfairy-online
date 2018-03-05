@@ -15,8 +15,9 @@
 
 .outOfView {
     position: absolute;
-    left: -1000px;
-    top: -1000px;
+    left: -10000px;
+    top: -10000px;
+    font-size: xx-small;
 }
 
 html body div div#contentTable_wrapper.dataTables_wrapper.no-footer div#contentTable_paginate.dataTables_paginate.paging_simple_numbers span a.paginate_button.current,
