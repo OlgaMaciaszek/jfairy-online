@@ -13,19 +13,26 @@
     <script src="/scripts/validateInput.js"></script>
 </head>
 <body style="margin: 0.8%;">
+<div class="btn-group pull-right">
+    <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+</div>
+<div class="jumbotron text-center">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-lg-4">
+                <a href="/"><img src="/images/logo.svg" class="pull-left"/></a>
+            </div>
+            <div class="col-lg-8 pull-right align-self-center jumbotron-column">
+                <h1 class="jumbotron-header">Test Data Generator</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-container">
 <div class="page-header">
     <div class="row">
         <div class="col-md-11">
             <h1>Data Input</h1>
-        </div>
-        <div class="col-md-1">
-            <div class="btn-group">
-                <h2>
-                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
-                            class="glyphicon glyphicon-home"></span> Home
-                    </button>
-                </h2>
-            </div>
         </div>
     </div>
 </div>
@@ -102,7 +109,7 @@
             </div>
             <div class="form-group">
                 <label for="data">Insert data separated by commas:</label>
-                <textarea th:field="*{data}" maxlength="20000" class="form-control" rows="20" id="data"></textarea>
+                <textarea th:field="*{data}" maxlength="1000" class="form-control" rows="15" id="data"></textarea>
                 <div class="alert alert-danger added-margin-top" role="alert" th:if="${#fields.hasErrors('data')}" th:errors="*{data}">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Data Error:</span>
@@ -160,5 +167,16 @@
         </form>
     </div>
 </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.
+            Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.
+            Powered by <a href="https://devskiller.com/">Devskiller</a>.<br/><a href="/">Home. </a><a
+                    href="/api">API Documentation. </a><a
+                    href="/admin">Admin Panel. </a>
+        </span>
+    </div>
+</footer>
 </body>
 </html>

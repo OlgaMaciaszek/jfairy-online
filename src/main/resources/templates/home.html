@@ -11,18 +11,16 @@
     <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
     <script src="/scripts/customBehaviour.js"></script>
 </head>
-<body style="margin: 0.8%;">
+<body>
 <main role="main">
 <div class="btn-group pull-right">
-    <button class="btn btn-link" onclick="location.href='/login'">Log In</button>
-    <button class="btn btn-link" onclick="location.href='/login?logout'">Log Out</button>
     <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
 </div>
 <div class="jumbotron text-center">
     <div class="container">
         <div class="row justify-content-start">
             <div class="col-lg-4">
-                <img src="/images/logo.svg" class="pull-left"/>
+                <a href="/"><img src="/images/logo.svg" class="pull-left"/></a>
             </div>
             <div class="col-lg-8 pull-right align-self-center jumbotron-column">
                 <h1 class="jumbotron-header">Test Data Generator</h1>
@@ -30,7 +28,8 @@
         </div>
     </div>
 </div>
-    <div class="container panel-container">
+    <div class="margin-container">
+        <div class="container panel-container">
 <div class="panel panel-primary" data-toggle="tooltip"
      title="Select data language, record count and fields to be displayed.">
     <div class="panel-heading">Generate Person Data</div>
@@ -259,13 +258,17 @@
     </div>
 </div>
 <button class="btn btn-lg btn-block" onclick="location.href='/data'">Contribute - add locale-specific data</button>
+        </div>
     </div>
 </main>
 <footer class="footer">
     <div class="container">
         <span class="text-muted">Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.
             Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.
-            Powered by <a href="https://devskiller.com/">Devskiller</a>.</span>
+            Powered by <a href="https://devskiller.com/">Devskiller</a>.<br/><a href="/">Home</a>  |
+            <a href="/api">API Documentation</a>  |
+            <a href="/admin">Admin Panel</a>
+        </span>
     </div>
 </footer>
 </body>

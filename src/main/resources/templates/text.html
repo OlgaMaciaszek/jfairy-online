@@ -11,18 +11,31 @@
     <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
     <script src="/scripts/customBehaviour.js"></script>
 </head>
-<body style="margin: 0.8%;">
+<body>
+<div class="btn-group pull-right">
+    <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+</div>
+<div class="jumbotron text-center">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-lg-4">
+                <a href="/"><img src="/images/logo.svg" class="pull-left"/></a>
+            </div>
+            <div class="col-lg-8 pull-right align-self-center jumbotron-column">
+                <h1 class="jumbotron-header">Test Data Generator</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-container">
 <div class="page-header">
     <div class="row">
         <div class="col-md-10">
             <h1>Text</h1>
         </div>
         <div class="col-md-2">
-            <div class="btn-group">
+            <div class="btn-group pull-right">
                 <h2>
-                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
-                            class="glyphicon glyphicon-home"></span> Home
-                    </button>
                     <button class="btn btn-primary" id="reload"><span class="glyphicon glyphicon-refresh"></span> Reload
                     </button>
                 </h2>
@@ -33,12 +46,16 @@
 <div class="panel panel-primary">
     <div th:text="${text}" class="panel-body" data-toggle="tooltip" title="Click to copy the text.">Text</div>
 </div>
+</div>
 <div id="copyContent" class="outOfView"></div>
-<footer class="footer-text">
+<footer class="footer">
     <div class="container">
         <span class="text-muted">Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.
             Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.
-            Powered by <a href="https://devskiller.com/">Devskiller</a>.</span>
+            Powered by <a href="https://devskiller.com/">Devskiller</a>.<br/><a href="/">Home. </a><a
+                    href="/api">API Documentation. </a><a
+                    href="/admin">Admin Panel. </a>
+        </span>
     </div>
 </footer>
 </body>

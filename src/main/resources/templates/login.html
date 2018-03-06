@@ -9,20 +9,29 @@
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
 </head>
-<body style="margin: 0.8%">
+<body>
+<div class="btn-group pull-right">
+    <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+</div>
+<div class="jumbotron text-center">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-lg-4">
+                <a href="/"><img src="/images/logo.svg" class="pull-left"/></a>
+            </div>
+            <div class="col-lg-8 pull-right align-self-center jumbotron-column">
+                <h1 class="jumbotron-header">Test Data Generator</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-left: 150px;">
 <div class="page-header">
     <div class="row">
         <div class="col-md-11">
             <h1>Login Form</h1>
         </div>
         <div class="col-md-1">
-            <div class="btn-group">
-                <h2>
-                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
-                            class="glyphicon glyphicon-home"></span> Home
-                    </button>
-                </h2>
-            </div>
         </div>
     </div>
 </div>
@@ -40,26 +49,34 @@
                 </div>
                 <label for="username">Email:</label>
                 <div class="row">
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" id="username" name="username"/>
+                    <div class="col-lg-4">
+                        <input type="email" class="form-control" id="username" th:type="email" name="username"/>
                     </div>
                 </div>
                 <label for="password">Password:</label>
                 <div class="row">
-                    <div class="col-md-6">
-                        <input type="password" class="form-control" id="password" name="password"/>
+                    <div class="col-lg-4">
+                        <input type="password" class="form-control" id="password" th:type="password" name="password"/>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:10px;">Log In</button>
+            <div class="row">
+                <div class="col-lg-4">
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-top:10px;">Log In</button>
+                </div>
+            </div>
         </fieldset>
     </form>
 </div>
-<footer class="footer-text">
+</div>
+<footer class="footer">
     <div class="container">
         <span class="text-muted">Test data generator based on the <a href="https://github.com/Devskiller/jfairy">jFairy library</a>.
             Created by <a href="http://olgamaciaszek.github.io/">Olga Maciaszek-Sharma</a>.
-            Powered by <a href="https://devskiller.com/">Devskiller</a>.</span>
+            Powered by <a href="https://devskiller.com/">Devskiller</a>.<br/><a href="/">Home. </a><a
+                    href="/api">API Documentation. </a><a
+                    href="/admin">Admin Panel. </a>
+        </span>
     </div>
 </footer>
 </body>
