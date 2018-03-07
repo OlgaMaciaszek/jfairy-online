@@ -34,4 +34,14 @@ $(document).ready(function () {
         $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', false);
         return false;
     });
+    $("A[href='#show_advanced']").click(function () {
+        var reference = $(this).attr('rel');
+        $("#" + reference).show();
+        $("#" + reference + "Switch").hide();
+    });
+    $("A[href='#hide_advanced']").click(function () {
+        var reference = $(this).attr('rel');
+        $("#" + reference).hide();
+        $("#" + reference + "Switch").show();
+    });
 });

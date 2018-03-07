@@ -71,7 +71,7 @@
                            th:value="100"/>
                 </div>
             </div>
-            <div class="form-inline">
+            <div id="personFieldsSection" class="form-inline" th:hidden="true">
                 <fieldset id="personFields">
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
                                   th:checked="checked"/>First Name</label>
@@ -94,13 +94,13 @@
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="age"
                                   th:checked="checked"/>Age</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyName"
-                                  th:checked="checked"/>Company Name</label>
+                                  th:checked="false"/>Company Name</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyWebsite"
-                                  th:checked="checked"/>Company Website</label>
+                                  th:checked="false"/>Company Website</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyEmail"
-                                  th:checked="checked"/>Company Email</label>
+                                  th:checked="false"/>Company Email</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig"
-                                  th:value="companyVatIdentificationNumber" th:checked="checked"/>Company VATIN</label>
+                                  th:value="companyVatIdentificationNumber" th:checked="false"/>Company VATIN</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig"
                                   th:value="nationalIdentityCardNumber" th:checked="checked"/>National Identity Card Number</label>
                     <label><input class="form-control" type="checkbox" th:name="personTableConfig"
@@ -110,8 +110,10 @@
                                   th:checked="checked"/>Passport Number</label>
                 </fieldset>
                 <a rel="personFields" href="#select_all">Select All</a> |
-                <a rel="personFields" href="#select_none">Select None</a>
+                <a rel="personFields" href="#select_none">Select None</a> |
+                <a rel="personFieldsSection" href="#hide_advanced">Show Simple View</a>
             </div>
+            <a rel="personFieldsSection" href="#show_advanced" id="personFieldsSectionSwitch">Show Advanced</a>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
@@ -159,9 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-inline">
-                <div class="row">
-                    <div class="col-lg-3">
+            <div class="form-inline" id="companyFieldsSection" th:hidden="true">
                         <fieldset id="companyFields">
                             <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
                                           th:value="name"
@@ -176,13 +176,11 @@
                                           th:value="vatIdentificationNumber"
                                           th:checked="Email"/>VATIN</label>
                         </fieldset>
-                    </div>
-                    <div class="col-lg-3 added-small-margin-top">
                         <a rel="companyFields" href="#select_all">Select All</a> |
-                        <a rel="companyFields" href="#select_none">Select None</a>
-                    </div>
-                </div>
+                <a rel="companyFields" href="#select_none">Select None</a> |
+                <a rel="companyFieldsSection" href="#hide_advanced">Show Simple View</a>
             </div>
+            <a rel="companyFieldsSection" href="#show_advanced" id="companyFieldsSectionSwitch">Show Advanced</a>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
