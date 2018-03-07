@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Admin Panel</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
@@ -11,11 +12,11 @@
     <script src="/bootstrap-ds-custom/js/bootstrap.min.js"></script>
     <script src="/scripts/customBehaviour.js"></script>
 </head>
-<body style="margin: 0.8%;">
+<body>
 <div class="btn-group pull-right">
-    <button class="btn btn-link" onclick="location.href='/login'">Log In</button>
-    <button class="btn btn-link" onclick="location.href='/login?logout'">Log Out</button>
     <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+    <button class="btn btn-link" onclick="location.href='/login?logout'" sec:authorize="isAuthenticated()">Log Out
+    </button>
 </div>
 <div class="jumbotron text-center">
     <div class="container">
@@ -29,19 +30,11 @@
         </div>
     </div>
 </div>
+<div class="margin-container">
 <div class="page-header">
     <div class="row">
         <div class="col-md-11">
             <h1>Admin Panel</h1>
-        </div>
-        <div class="col-md-1">
-            <div class="btn-group pull-right">
-                <h2>
-                    <button class="btn btn-primary" id="home" onclick="location.href='/'"><span
-                            class="glyphicon glyphicon-home"></span> Home
-                    </button>
-                </h2>
-            </div>
         </div>
     </div>
 </div>
@@ -126,6 +119,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 <footer class="footer">
     <div class="container">

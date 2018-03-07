@@ -15,6 +15,7 @@ buildscript {
 		cglibNoDepVersion = '3.2.5'
 		swaggerVersion = '2.7.0'
 		logbackEncoderVersion = '5.0'
+		thymeleafSecurityVersion = '2.1.3.RELEASE'
 	}
 
 	dependencies {
@@ -75,6 +76,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: "${thymeleafSecurityVersion}"
 	compile group: 'io.codearte.jfairy', name: 'jfairy', version: "${jFairyVersion}"
 	compile group: 'org.webjars', name: 'jquery', version: "${jQueryVersion}"
 	compile group: 'com.github.dandelion', name: 'datatables-thymeleaf', version: "${datatablesVersion}"

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
     <title>Log In</title>
@@ -12,6 +13,9 @@
 <body>
 <div class="btn-group pull-right">
     <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+    <button class="btn btn-link" onclick="location.href='/login?logout'" sec:authorize="isAuthenticated()">
+        Log Out
+    </button>
 </div>
 <div class="jumbotron text-center">
     <div class="container">

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Pattern;
 
 import io.codearte.jFairyOnline.services.MongoUserDetailsService;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,6 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	UserDetailsService mongoUserDetails() {
 		return new MongoUserDetailsService();
+	}
+
+	@Bean
+	public SpringSecurityDialect springSecurityDialect() {
+		return new SpringSecurityDialect();
 	}
 
 	@Override

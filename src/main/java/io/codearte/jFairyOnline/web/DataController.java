@@ -74,7 +74,7 @@ public class DataController {
 			model.addAttribute(DATA_PACK, dto);
 			return "dataInputForm";
 		}
-		dataService.savePack(dto);
+			dataService.savePack(dto);
 		return DATA_INPUT_CONFIRM;
 	}
 

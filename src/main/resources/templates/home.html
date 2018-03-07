@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Data Fairy</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
@@ -15,8 +16,11 @@
 <main role="main">
 <div class="btn-group pull-right">
     <button class="btn btn-link" onclick="location.href='/admin'">Admin Panel</button>
+        <button class="btn btn-link" onclick="location.href='/login?logout'" sec:authorize="isAuthenticated()">
+            Log Out
+        </button>
 </div>
-<div class="jumbotron text-center">
+    <div class=" jumbotron text-center">
     <div class="container">
         <div class="row justify-content-start">
             <div class="col-lg-4">
