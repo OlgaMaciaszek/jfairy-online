@@ -72,41 +72,45 @@
                 </div>
             </div>
             <div class="form-inline">
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
-                              th:checked="checked"/>First Name</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="middleName"
-                              th:checked="checked"/>Middle Name</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="address"
-                              th:checked="checked"/>Address</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="email"
-                              th:checked="Email"/>Last Name</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="username"
-                              th:checked="checked"/>Username</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="password"
-                              th:checked="checked"/>Password</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="gender"
-                              th:checked="Gender"/>Username</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
-                              th:value="telephoneNumber" th:checked="checked"/>Telephone Number</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="dateOfBirth"
-                              th:checked="checked"/>Date of Birth</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="age"
-                              th:checked="checked"/>Age</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyName"
-                              th:checked="checked"/>Company Name</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyWebsite"
-                              th:checked="checked"/>Company Website</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyEmail"
-                              th:checked="checked"/>Company Email</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
-                              th:value="companyVatIdentificationNumber" th:checked="checked"/>Company VATIN</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
-                              th:value="nationalIdentityCardNumber" th:checked="checked"/>National Identity Card Number</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig"
-                              th:value="nationalIdentificationNumber" th:checked="checked"/>National Identification
-                    Number</label>
-                <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="passportNumber"
-                              th:checked="checked"/>Passport Number</label>
+                <fieldset id="personFields">
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="firstName"
+                                  th:checked="checked"/>First Name</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="middleName"
+                                  th:checked="checked"/>Middle Name</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="address"
+                                  th:checked="checked"/>Address</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="email"
+                                  th:checked="Email"/>Last Name</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="username"
+                                  th:checked="checked"/>Username</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="password"
+                                  th:checked="checked"/>Password</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="gender"
+                                  th:checked="Gender"/>Username</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                                  th:value="telephoneNumber" th:checked="checked"/>Telephone Number</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="dateOfBirth"
+                                  th:checked="checked"/>Date of Birth</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="age"
+                                  th:checked="checked"/>Age</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyName"
+                                  th:checked="checked"/>Company Name</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyWebsite"
+                                  th:checked="checked"/>Company Website</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="companyEmail"
+                                  th:checked="checked"/>Company Email</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                                  th:value="companyVatIdentificationNumber" th:checked="checked"/>Company VATIN</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                                  th:value="nationalIdentityCardNumber" th:checked="checked"/>National Identity Card Number</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig"
+                                  th:value="nationalIdentificationNumber" th:checked="checked"/>National Identification
+                        Number</label>
+                    <label><input class="form-control" type="checkbox" th:name="personTableConfig" th:value="passportNumber"
+                                  th:checked="checked"/>Passport Number</label>
+                </fieldset>
+                <a rel="personFields" href="#select_all">Select All</a> |
+                <a rel="personFields" href="#select_none">Select None</a>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
@@ -156,15 +160,28 @@
                 </div>
             </div>
             <div class="form-inline">
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="name"
-                              th:checked="checked"/>Name</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="website"
-                              th:checked="checked"/>Website</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig" th:value="email"
-                              th:checked="checked"/>Email</label>
-                <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
-                              th:value="vatIdentificationNumber"
-                              th:checked="Email"/>VATIN</label>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <fieldset id="companyFields">
+                            <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                                          th:value="name"
+                                          th:checked="checked"/>Name</label>
+                            <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                                          th:value="website"
+                                          th:checked="checked"/>Website</label>
+                            <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                                          th:value="email"
+                                          th:checked="checked"/>Email</label>
+                            <label><input class="form-control" type="checkbox" th:name="companyTableConfig"
+                                          th:value="vatIdentificationNumber"
+                                          th:checked="Email"/>VATIN</label>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-3 added-small-margin-top">
+                        <a rel="companyFields" href="#select_all">Select All</a> |
+                        <a rel="companyFields" href="#select_none">Select None</a>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>

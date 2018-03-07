@@ -24,4 +24,14 @@ $(document).ready(function () {
     $('#reload').click(function () {
         window.location.reload(true);
     });
+    // Select all
+    $("A[href='#select_all']").click(function () {
+        $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', true);
+        return false;
+    });
+    // Select none
+    $("A[href='#select_none']").click(function () {
+        $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', false);
+        return false;
+    });
 });

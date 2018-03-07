@@ -189,6 +189,10 @@ html body div.panel.panel-primary div.panel-body form div.form-inline label inpu
     width: 1300px;
 }
 
+.added-small-margin-top {
+    margin-top: 10px;
+}
+
 .added-margin-top {
     margin-top: 15px;
 }
